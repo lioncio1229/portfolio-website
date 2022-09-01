@@ -1,4 +1,3 @@
-import React from 'react';
 import {Box, List, ListItemButton, ListItemText, ListItemIcon} from "@mui/material";
 import {Add, Remove, Close, Percent} from "@mui/icons-material";
 
@@ -22,20 +21,19 @@ const renderObj = [
     { index : 3, title : 'Division', icon : <Percent/> },
 ]
 
-const OperationList = () => {
-    const [index, setIndex] = React.useState(0);
+const OperationList = ({index, setIndex}) => {
 
     return (
       <Box
         sx={{
           width: "100%",
           bgcolor: "background.paper",
-          display: { xs: "none", sm: "none", md: "block" },
         }}
       >
         <List component="nav" disablePadding>
           {renderObj.map((obj) => (
             <ListItemCustom
+              key={obj.index}
               icon={obj.icon}
               selected={index}
               index={obj.index}
