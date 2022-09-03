@@ -4,9 +4,9 @@ import { Box, Card, Stack, TextField, Typography, Divider, Button} from "@mui/ma
 const Operand = ({children, value, onChange}) => {
     return (
         <Stack>
-            <TextField variant='filled' type='number' value={value} onChange={onChange} />
+            <TextField size={{xs : 'small', sm : 'medium'}} variant='filled' type='number' value={value} onChange={onChange} />
             <Card>
-                <Typography align='center' p={2} color='primary' fontFamily='Poppins'>
+                <Typography align='center' p={{xs : 0.88, sm : 2}} color='primary' fontFamily='Poppins'>
                     {children}
                 </Typography>
             </Card>
@@ -18,7 +18,7 @@ const Result = ({children, result}) => {
     return (
         <Box minWidth={200}>
         <Card>
-            <Typography align="center" p={2}  color="primary" fontFamily="Poppins">
+            <Typography sx={{fontSize : '1.2rem'}} align="center" p={2}  color="primary" fontFamily="Poppins">
             {result}
             </Typography>
             <Divider/>

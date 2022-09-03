@@ -1,11 +1,17 @@
-import { Box, AppBar, IconButton, Toolbar, Stack, Typography, Button } from "@mui/material";
-import { Calculate, Build, Menu } from "@mui/icons-material";
+import {useContext} from 'react';
+import { ContextProvider } from '..';
+import { Box, AppBar, IconButton, Toolbar, Typography, Switch, FormControlLabel } from "@mui/material";
+import { Calculate, Menu } from "@mui/icons-material";
 
 const Header = ({onMenuClick}) => {
-    
+  const context = useContext(ContextProvider);
+  const {toggleOn, setToggleOn} = context.toggleMode;
+
+  const toggleLabel = () => toggleOn ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" elevation={0}>
+      <AppBar position="static" elevation={0} enableColorOnDark>
         <Toolbar>
           <IconButton
             onClick={onMenuClick}
@@ -24,10 +30,7 @@ const Header = ({onMenuClick}) => {
             Calculator
           </Typography>
 
-          <Button sx={{color : 'white'}} startIcon={<Build/>} disableElevation>
-            <Typography fontFamily={'Poppins'} fontWeight='500'> More Tools </Typography>
-          </Button>
-
+          <FormControlLabel control={<Switch color='secondary' checked={toggleOn} onChange={() => setToggleOn(!toggleOn)} />} label={toggleLabel()}/>
         </Toolbar>
       </AppBar>
     </Box>

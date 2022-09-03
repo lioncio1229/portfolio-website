@@ -9,7 +9,7 @@ const Main = () => {
 
     const [index, setIndex] = useState(0);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    
+
     const basicArithmetic = (op1, op2) => {
         switch (index) {
             case 0: return Number(op1) + Number(op2);
