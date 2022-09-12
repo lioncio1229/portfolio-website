@@ -6,7 +6,7 @@ import { green } from '@mui/material/colors';
 
 export const ContextProvider = React.createContext();
 
-const CalculatorApp = () => {
+const Calculatorapp = () => {
   const [toggleOn, setToggleOn] = useState(false);
   
   const getDesignToken = toggleOn => ({
@@ -51,4 +51,4 @@ const CalculatorApp = () => {
   );
 };
 
-export default CalculatorApp;
+export default Calculatorapp;
