@@ -2,9 +2,9 @@ import { AppBar, Toolbar, Container, Typography, Box, Button } from "@mui/materi
 
 const Header = () => {
   return (
-    <AppBar sx={{bgcolor : 'white'}} elevation={1}>
+    <AppBar sx={{bgcolor : 'white'}} elevation={1} position='static'>
         <Container>
-            <Toolbar>
+            <Toolbar disableGutters>
                 <Typography color='primary' fontWeight='bold' fontSize={33}>
                     MORCILLA
                 </Typography>
