@@ -1,7 +1,6 @@
 import ProjectCard from "./project.card";
 import { GitHub, Shop} from "@mui/icons-material";
 import { Grid, Typography, Box } from "@mui/material";
-import { Container } from "@mui/system";
 
 const Projects = ({title, projects}) => {
     return (
@@ -9,7 +8,7 @@ const Projects = ({title, projects}) => {
         <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
         <Grid container rowGap={10}>
           {projects.map((p) => (
-            <Grid item xs={6} display='flex' justifyContent='center'>
+            <Grid item xs={12} sm={6} display='flex' justifyContent='center'>
               <ProjectCard 
                   title={p.title}
                   description={p.description}
@@ -17,6 +16,8 @@ const Projects = ({title, projects}) => {
                   imageURL={p.imageURL}
                   visitIcon={p.visitIcon}
                   tools={p.tools}
+                  width={{xs : 450, sm : '38vw'}}
+                  height={{xs : 300, sm : '25vw'}}
               />
             </Grid>
           ))}
@@ -58,7 +59,7 @@ const exerciseProjects = [
     bgcolor : '#FFFDE2',
     imageURL : "/projects/my-notepad.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools : ["HTML", "CSS", "Javascript", "React", "Express, MongoDB"]
+    tools : ["HTML", "CSS", "Javascript", "React", "Express", "MongoDB"]
   },
 
   {

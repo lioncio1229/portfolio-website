@@ -16,42 +16,65 @@ const imgStyle = {
     height: 'auto',
 }
 
-const ProjectCard = ({ title, description, imageURL, visitIcon, tools, bgcolor="white", width=500, height=350}) => {
+const ProjectCard = ({
+  title,
+  description,
+  imageURL,
+  visitIcon,
+  tools,
+  bgcolor = "white",
+  width = 500,
+  height = 350,
+  titleFontSize = {xs : 24, sm: "2.5vw", md: "2vw" },
+  descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18}
+}) => {
   return (
     <Stack spacing={1} width={width}>
-        <CustomBox
+      <CustomBox
         sx={{
-            bgcolor,
-            width,
-            height,
-            display : 'flex',
-            justifyContent : 'center',
-            alignItems : 'center'
+          bgcolor,
+          width,
+          height,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
+      >
+        <CustomBox
+          sx={{
+            overflow: "hidden",
+            width: "90%",
+            height: "90%",
+            bgcolor: "white",
+            position: "relative",
+          }}
         >
-            <CustomBox sx={{overflow : 'hidden', width : '90%', height : '90%', bgcolor : 'white', position : 'relative'}}>
-                <img src={imageURL} style={imgStyle} />
-            </CustomBox>
+          <img src={imageURL} style={imgStyle} />
         </CustomBox>
-        <Stack direction='row' justifyContent='space-between' alignItems='center'>
-            <Typography color='primary' fontWeight='medium' variant="h5">{title}</Typography>
-            <IconButton color="primary">
-                {visitIcon}
-            </IconButton>
-        </Stack>
-        <Typography color='primary'>{description}</Typography>
-        {
-            tools && <>
-            <Typography color='primary' variant='h6'>Tools</Typography>
-            <Stack direction='row' spacing={1}>
-                {
-                    tools.map(tool => (
-                        <CustomChip label={tool} />
-                    ))
-                }
-            </Stack>
-            </>
-        }
+      </CustomBox>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography
+          color="primary"
+          fontWeight="medium"
+          sx={{ fontSize: titleFontSize }}
+        >
+          {title}
+        </Typography>
+        <IconButton color="primary">{visitIcon}</IconButton>
+      </Stack>
+      <Typography color="primary" sx={{fontSize : descriptionFontSize}}>{description}</Typography>
+      {tools && (
+        <>
+          <Typography color="primary" variant="h6">
+            Tools
+          </Typography>
+          <Stack direction="row" gap={1} flexWrap="wrap">
+            {tools.map((tool) => (
+              <CustomChip label={tool} />
+            ))}
+          </Stack>
+        </>
+      )}
     </Stack>
   );
 };
