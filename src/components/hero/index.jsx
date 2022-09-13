@@ -43,10 +43,9 @@ export const Title = () => {
 
 const Hero = () => {
   return (
-    <Container>
      <Grid container>
 
-      <Grid item mt={{xs : 5, md : 10}} sm={12} md={6}>
+      <Grid item mt={{xs : 5, md : 17}} sm={12} md={6}>
         <Title />
       </Grid>
       
@@ -66,7 +65,6 @@ const Hero = () => {
       </Grid>
 
      </Grid>
-    </Container>
   );
 };
 

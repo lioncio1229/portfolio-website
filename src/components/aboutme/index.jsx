@@ -7,7 +7,7 @@ const myInfos = [
     {label : 'Email', value : 'lionciomorcilla12@gmail.com', icon : <Email color='secondary' fontSize="large"/>},
 ];
 
-const skills = {
+export const skills = {
     frontend : 'HTML,CSS,Javascript,Reactjs,MUI,Adobe XD',
     backend : 'Expressjs,MongoDB,Mysql,PHP',
     gameDev : 'UnityEngine,C#,Adobe Photoshop,Blender 3D'
@@ -19,7 +19,7 @@ export const CustomChip = ({label}) => {
 
 const SkillInfo = ({title, skills}) => {
     return (
-        <>
+        <Box>
             <Typography variant='h6' color='primary' fontWeight='bold'>{title}</Typography>
             <Stack direction='row' spacing={1}>
             {
@@ -28,14 +28,14 @@ const SkillInfo = ({title, skills}) => {
                 ))
             }
             </Stack>
-        </>
+        </Box>
     );
 }
 
 const Info = () => {
 
     return (
-      <Stack spacing={2}>
+      <Stack spacing={3}>
 
         <Typography variant="h4" fontWeight="bold" color="primary">
           About Me
@@ -53,11 +53,11 @@ const Info = () => {
                     <Grid item xs={1}>
                         {info.icon}
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={3}>
                         <Typography  fontSize={18} color='primary'>{info.label}</Typography>
                     </Grid>
                     <Grid item xs={1}><Typography  fontSize={18} color='primary'>:</Typography></Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={6}>
                         <Typography  fontSize={18} color='primary'>{info.value}</Typography>
                     </Grid>
                 </Grid>
@@ -76,20 +76,16 @@ const Info = () => {
 }
 
 const AboutMe = () => {
-    return ( 
-        <Box>
-            <Container>
-                <Grid container>
-                    <Grid item xs={0}  lg={6} display={{xs : 'none', lg : 'flex'}}>
-                        <img width='100%' height='auto' src='/lioncio.png' alt="" />
-                    </Grid>
-                    <Grid item xs={12} lg={6}>
-                        <Info/>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
-     );
+    return (
+      <Grid container>
+        <Grid item xs={0} lg={6} display={{ xs: "none", lg: "flex" }}>
+          <img width="100%" height={650} src="/lioncio.png" alt="" />
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <Info />
+        </Grid>
+      </Grid>
+    );
 }
  
 export default AboutMe;

@@ -1,16 +1,23 @@
 import Header from "../components/header";
 import Hero from "../components/hero";
 import AboutMe from "../components/aboutme";
-import { Stack } from "@mui/material";
+import SkillLevels from "../components/skill_levels";
+import { Stack, Container } from "@mui/material";
+import { ClientProjects, ExerciseProjects } from "../components/projects";
 
 const Homepage = () => {
   return (
     <>
       <Header/>
-      <Stack spacing={30}>
-        <Hero/>
-        <AboutMe/>
-      </Stack>
+      <Container>
+        <Stack spacing={24}>
+          <Hero/>
+          <AboutMe/>
+          <SkillLevels/>
+          <ClientProjects/>
+          <ExerciseProjects/>
+        </Stack>
+      </Container>
     </>
   );
 };
