@@ -40,7 +40,8 @@ const clientProjects = [
     bgcolor : '#CCD6FF',
     imageURL : "/projects/olinsterg.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools : ["HTML", "CSS", "Javascript", "PHP", "Mysql"]
+    tools : ["HTML", "CSS", "Javascript", "PHP", "Mysql"],
+    path : '/olinsterg-unlock'
   },
 
   {
@@ -51,7 +52,8 @@ const clientProjects = [
     bgcolor : '#E5FEFF',
     imageURL : "/projects/spider.png",
     visitIcon : <Shop sx={{ fontSize: 45 }} />,
-    tools : ["Unity Engine", "C#", "Blender", "Photoshop", "Audacity"]
+    tools : ["Unity Engine", "C#", "Blender", "Photoshop", "Audacity"],
+    path : '/spider-gagambattle'
   }
 ];
 
@@ -82,7 +84,8 @@ const exerciseProjects = [
     bgcolor : '#AAD6EC',
     imageURL : "/projects/resistor-color-coding.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools : ["Javascript", "React", "MUI"]
+    tools : ["Javascript", "React", "MUI"],
+    path : '/resistor-color-coding'
   },
 
   {
