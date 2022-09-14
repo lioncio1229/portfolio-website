@@ -1,5 +1,7 @@
-import { styled, Box, Stack, Typography, IconButton} from "@mui/material";
+import { styled, Box, Stack, Typography, IconButton, Button} from "@mui/material";
 import { CustomChip } from "../aboutme";
+import { useSpring, animated } from "react-spring";
+
 
 const CustomBox = styled(Box)(() => ({
     boxShadow: "0 2px 3px rgb(0, 0, 0, 0.2), 0 3px 6px rgb(0, 0, 0, 0.16)",
@@ -7,11 +9,15 @@ const CustomBox = styled(Box)(() => ({
     cursor : 'pointer'
 }));
 
+const absoluteCenter = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%,-50%)',
+}
+
 const imgStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%,-50%)',
+    ...absoluteCenter,
     width: '150%',
     height: 'auto',
 }
@@ -28,6 +34,9 @@ const ProjectCard = ({
   titleFontSize = {xs : 24, sm: "2.5vw", md: "2vw" },
   descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18}
 }) => {
+
+  const [style, api] = useSpring(() => ({from : {zoom : 150, blur : 0}}));
+
   return (
     <Stack spacing={1} width={width}>
       <CustomBox
@@ -39,6 +48,8 @@ const ProjectCard = ({
           justifyContent: "center",
           alignItems: "center",
         }}
+        onMouseEnter={() => api.start({zoom : 160, blur : 2})}
+        onMouseLeave={() => api.start({zoom : 150, blur : 0})}
       >
         <CustomBox
           sx={{
@@ -49,9 +60,21 @@ const ProjectCard = ({
             position: "relative",
           }}
         >
-          <img src={imageURL} style={imgStyle} />
+          <animated.div style={{opacity : style.blur}}>
+            <Stack sx={{...absoluteCenter, zIndex : 2}} direction='row' gap={2}>
+              <Button variant='contained' size='large' color='primary' sx={{width : 170}}>
+                <Typography color='white' fontSize={12}>View</Typography>
+              </Button>
+              <Button variant='contained' size='large' color='primary' sx={{width : 170, display : {xs : 'none', lg : 'block'}}}>
+                <Typography color='white' fontSize={10}>View on another tab</Typography>
+              </Button>
+            </Stack>
+          </animated.div>
+          <animated.img src={imageURL} style={{...imgStyle, filter : style.blur.to(v => `blur(${v}px)`), width : style.zoom.to(v => `${v}%`)}} />
         </CustomBox>
+
       </CustomBox>
+
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography
           color="primary"
