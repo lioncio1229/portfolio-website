@@ -11,7 +11,7 @@ const Homepage = () => {
   return (
     <>
       <Header/>
-      <Box mb={22}>
+      <Box mb={{xs : 10, md : 22}}>
         <Container>
           <Stack spacing={{xs : 10, sm : 15, md : 24}}>
             <Hero/>
@@ -27,7 +27,7 @@ const Homepage = () => {
       <Box sx={{height : 120, bgcolor : 'primary.main'}}>
         <Container maxWidth='sm' sx={{height : '100%'}}>
           <Stack sx={{height : '100%'}} justifyContent='center'>
-            <Typography color='white' variant='h6' textAlign='center'> Thanks for visiting my site ☺ </Typography>
+            <Typography color='white' sx={{fontSize : 17}} textAlign='center'> Thanks for visiting my site ☺ </Typography>
             <Stack direction="row" justifyContent="center" spacing={1}>
               <IconButton sx={{color : 'white'}}>
                 <FacebookRounded fontSize="large" />
