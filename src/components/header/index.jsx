@@ -16,7 +16,7 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
             MORCILLA
           </Typography>
 
-          <Stack direction='row' gap={1} flexGrow={1} ml={2}>
+          <Stack direction='row' gap={1} flexGrow={1} ml={2} sx={{display: { xs: 'none', md: 'flex' }}}>
             {buttons.map((v, i) =>
               i === toolbarIndex ? 
                 <Button

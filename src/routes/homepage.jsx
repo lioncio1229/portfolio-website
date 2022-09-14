@@ -33,23 +33,25 @@ const Homepage = () => {
     setToolboxIndex(index);
   }
 
+  const updateSelectedButton = (e) => {
+    const locations = [
+      getElementHeight(heroRef) + getElementPos(heroRef),
+      getElementHeight(aboutMeRef) + getElementPos(aboutMeRef),
+      getElementHeight(skillRef) + getElementPos(skillRef),
+      getElementHeight(projectRef) + getElementPos(projectRef),
+      getElementHeight(contactMeRef) + getElementPos(contactMeRef),
+    ];
+    
+    const scrollPos = getScrollPos();
+    if(scrollPos <= locations[0]) setToolboxIndex(0);
+    else if(scrollPos <= locations[1]) setToolboxIndex(1);
+    else if(scrollPos <= locations[2]) setToolboxIndex(2);
+    else if(scrollPos <= locations[3]) setToolboxIndex(3);
+    else if(scrollPos <= locations[4]) setToolboxIndex(4);
+  }
+
   useEffect(() => {
-    document.addEventListener('wheel', e => {
-      const locations = [
-        getElementHeight(heroRef) + getElementPos(heroRef),
-        getElementHeight(aboutMeRef) + getElementPos(aboutMeRef),
-        getElementHeight(skillRef) + getElementPos(skillRef),
-        getElementHeight(projectRef) + getElementPos(projectRef),
-        getElementHeight(contactMeRef) + getElementPos(contactMeRef),
-      ];
-      
-      const scrollPos = getScrollPos();
-      if(scrollPos <= locations[0]) setToolboxIndex(0);
-      else if(scrollPos <= locations[1]) setToolboxIndex(1);
-      else if(scrollPos <= locations[2]) setToolboxIndex(2);
-      else if(scrollPos <= locations[3]) setToolboxIndex(3);
-      else if(scrollPos <= locations[4]) setToolboxIndex(4);
-    });
+    document.addEventListener('wheel', e => updateSelectedButton(e));
   });
 
   return (

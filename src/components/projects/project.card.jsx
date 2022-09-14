@@ -32,7 +32,8 @@ const ProjectCard = ({
   width = 500,
   height = 350,
   titleFontSize = {xs : 24, sm: "2.5vw", md: "2vw" },
-  descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18}
+  descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18},
+  onViewClick
 }) => {
 
   const [style, api] = useSpring(() => ({from : {zoom : 150, blur : 0}}));
@@ -48,8 +49,8 @@ const ProjectCard = ({
           justifyContent: "center",
           alignItems: "center",
         }}
-        onMouseEnter={() => api.start({zoom : 160, blur : 2})}
-        onMouseLeave={() => api.start({zoom : 150, blur : 0})}
+        onMouseEnter={() => api.start({ zoom: 160, blur: 2 })}
+        onMouseLeave={() => api.start({ zoom: 150, blur: 0 })}
       >
         <CustomBox
           sx={{
@@ -60,19 +61,44 @@ const ProjectCard = ({
             position: "relative",
           }}
         >
-          <animated.div style={{opacity : style.blur}}>
-            <Stack sx={{...absoluteCenter, zIndex : 2}} direction='row' gap={2}>
-              <Button variant='contained' size='large' color='primary' sx={{width : 170}}>
-                <Typography color='white' fontSize={12}>View</Typography>
+          <animated.div style={{ opacity: style.blur }}>
+            <Stack
+              sx={{ ...absoluteCenter, zIndex: 2 }}
+              direction="row"
+              gap={2}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                sx={{ width: 170 }}
+                onClick={onViewClick}
+              >
+                <Typography color="white" fontSize={12}>
+                  View
+                </Typography>
               </Button>
-              <Button variant='contained' size='large' color='primary' sx={{width : 170, display : {xs : 'none', lg : 'block'}}}>
-                <Typography color='white' fontSize={10}>View on another tab</Typography>
+              <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                sx={{ width: 170, display: { xs: "none", lg: "block" } }}
+              >
+                <Typography color="white" fontSize={10}>
+                  View on another tab
+                </Typography>
               </Button>
             </Stack>
           </animated.div>
-          <animated.img src={imageURL} style={{...imgStyle, filter : style.blur.to(v => `blur(${v}px)`), width : style.zoom.to(v => `${v}%`)}} />
+          <animated.img
+            src={imageURL}
+            style={{
+              ...imgStyle,
+              filter: style.blur.to((v) => `blur(${v}px)`),
+              width: style.zoom.to((v) => `${v}%`),
+            }}
+          />
         </CustomBox>
-
       </CustomBox>
 
       <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -85,7 +111,9 @@ const ProjectCard = ({
         </Typography>
         <IconButton color="primary">{visitIcon}</IconButton>
       </Stack>
-      <Typography color="primary" sx={{fontSize : descriptionFontSize}}>{description}</Typography>
+      <Typography color="primary" sx={{ fontSize: descriptionFontSize }}>
+        {description}
+      </Typography>
       {tools && (
         <>
           <Typography color="primary" variant="h6">

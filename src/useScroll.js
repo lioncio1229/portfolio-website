@@ -2,15 +2,18 @@
 const useScroll = () => {
 
     const to = (ref) => {
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start'});
+        if(ref && ref.current)
+            ref.current.scrollIntoView({ behavior: 'smooth', block: 'start'});
     }
 
     const getElementPos = (ref) => {
-        return ref.current.getBoundingClientRect().top + window.scrollY;
+        if(ref && ref.current)
+            return ref.current.getBoundingClientRect().top + window.scrollY;
     }
 
     const getElementHeight = (ref) => {
-        return ref.current.offsetHeight
+        if(ref && ref.current)
+            return ref.current.offsetHeight
     }
 
     const getScrollPos = () => {

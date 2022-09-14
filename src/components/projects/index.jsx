@@ -1,8 +1,10 @@
 import ProjectCard from "./project.card";
 import { GitHub, Shop} from "@mui/icons-material";
 import { Grid, Typography, Box } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 const Projects = ({title, projects}) => {
+  const navigate = useNavigate();
     return (
       <Box>
         <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
@@ -18,6 +20,7 @@ const Projects = ({title, projects}) => {
                   tools={p.tools}
                   width={{xs : 450, sm : '38vw'}}
                   height={{xs : 300, sm : '25vw'}}
+                  onViewClick={() => navigate(p.path)}
               />
             </Grid>
           ))}
@@ -68,7 +71,8 @@ const exerciseProjects = [
     bgcolor : '#96C8FB',
     imageURL : "/projects/simple-calculator.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools : ["Javascript", "React", "MUI"]
+    tools : ["Javascript", "React", "MUI"],
+    path : '/calculator'
   },
 
   {
