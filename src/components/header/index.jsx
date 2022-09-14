@@ -1,23 +1,41 @@
-import { AppBar, Toolbar, Container, Typography, Box, Button } from "@mui/material";
+import { Stack, AppBar, Toolbar, Container, Typography, Button } from "@mui/material";
 
-const Header = () => {
+const buttons = ['Home', 'About Me', 'Skills', 'My Projects']
+
+const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
   return (
-    <AppBar sx={{bgcolor : 'white'}} elevation={1} position='static'>
-        <Container>
-            <Toolbar disableGutters>
-                <Typography color='primary' fontWeight='bold' fontSize={33} sx={{flexGrow : {xs : 1, md : 0}}}>
-                    MORCILLA
-                </Typography>
-                <Box sx={{flexGrow : 1, ml : 5, display: { xs: 'none', md: 'flex' }}}>
-                    <Button variant='contained' color='selected'>About Me</Button>
-                    <Button variant='text'>Skills</Button>
-                    <Button variant='text'>My Projects</Button>
-                </Box>
-                <Button variant='contained' size='large' sx={{width : 150}}> Hire Me </Button>
-            </Toolbar>
-        </Container>
+    <AppBar sx={{ bgcolor: "white" }} elevation={1} position="fixed">
+      <Container>
+        <Toolbar disableGutters>
+          <Typography
+            color="primary"
+            fontWeight="bold"
+            fontSize={33}
+            sx={{ flexGrow: { xs: 1, md: 0 } }}
+          >
+            MORCILLA
+          </Typography>
+
+          <Stack direction='row' gap={1} flexGrow={1} ml={2}>
+            {buttons.map((v, i) =>
+              i === toolbarIndex ? 
+                <Button
+                  key={i}
+                  onClick={() => setToolbarIndex(i)}
+                  variant="contained"
+                  color="selected"
+                > {v} </Button>
+               : <Button key={i} onClick={() => setToolbarIndex(i)} variant="text">{v}</Button>
+            )}
+          </Stack>
+
+          <Button onClick={onHireMeClick} variant="contained" size="large" sx={{ width: 150 }}>
+            Hire Me
+          </Button>
+        </Toolbar>
+      </Container>
     </AppBar>
-  )
+  );
 };
 
 export default Header;

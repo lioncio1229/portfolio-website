@@ -93,7 +93,7 @@ const ProjectCard = ({
           </Typography>
           <Stack direction="row" gap={1} flexWrap="wrap">
             {tools.map((tool) => (
-              <CustomChip label={tool} />
+              <CustomChip key={tool} label={tool} />
             ))}
           </Stack>
         </>

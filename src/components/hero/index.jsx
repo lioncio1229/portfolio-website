@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { FacebookRounded, GitHub, Twitter } from "@mui/icons-material";
 
-export const Title = () => {
+export const Title = ({onContactmeClick, onMyProjectClick}) => {
   return (
       <Stack spacing={1} textAlign={{xs : 'center', sm : 'center', md : 'left'}}>
         <Typography fontSize={{xs : 35, sm : 35, md : '2vw'}} fontWeight="medium" color="secondary">
@@ -26,12 +26,12 @@ export const Title = () => {
         </Typography>
 
         <Stack direction="row" spacing={2} justifyContent={{xs : 'center', sm : 'center', md : 'left'}}>
-          <Button variant="contained" color="selected">
+          <Button variant="contained" color="selected" onClick={onContactmeClick}>
             <Typography fontSize={23} fontWeight="bold">
               Contact Me
             </Typography>
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="outlined" color="primary" onClick={onMyProjectClick}>
             <Typography fontSize={23} fontWeight="bold">
               My Projects
             </Typography>
@@ -41,12 +41,12 @@ export const Title = () => {
   );
 };
 
-const Hero = () => {
+const Hero = ({onContactmeClick, onMyProjectClick}) => {
   return (
      <Grid container>
 
       <Grid item mt={{xs : 5, md : 17}} sm={12} md={6}>
-        <Title />
+        <Title onContactmeClick={onContactmeClick} onMyProjectClick={onMyProjectClick}/>
       </Grid>
       
       <Grid item xs={12} md={6}>

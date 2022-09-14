@@ -8,7 +8,7 @@ const Projects = ({title, projects}) => {
         <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
         <Grid container rowGap={10}>
           {projects.map((p) => (
-            <Grid item xs={12} sm={6} display='flex' justifyContent='center'>
+            <Grid item xs={12} sm={6} display='flex' justifyContent='center' key={p.title}>
               <ProjectCard 
                   title={p.title}
                   description={p.description}

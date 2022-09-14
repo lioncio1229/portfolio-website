@@ -41,7 +41,7 @@ const ContactInfos = () => {
         <Stack spacing={2}>
             {
                 contactInfos.map(v => (
-                    <Stack direction='row' columnGap={3} alignItems='center'>
+                    <Stack direction='row' columnGap={3} alignItems='center' key={v.label}>
                         {v.icon}
                         <Stack>
                             <Typography sx={{fontSize : {xs : 20, md : '2vw'}}} color='primary' fontWeight='medium'>{v.label}</Typography>

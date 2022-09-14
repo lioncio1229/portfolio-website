@@ -24,7 +24,7 @@ const SkillInfo = ({title, skills}) => {
             <Stack direction='row' spacing={1}>
             {
                 skills.split(',').map(item => (
-                    <CustomChip label={item}/>
+                    <CustomChip key={item} label={item}/>
                 ))
             }
             </Stack>
@@ -49,7 +49,7 @@ const Info = () => {
         
         {
             myInfos.map(info => (
-                <Grid container alignItems='center'>
+                <Grid container alignItems='center' key={info.label}>
                     <Grid item xs={1}>
                         {info.icon}
                     </Grid>
