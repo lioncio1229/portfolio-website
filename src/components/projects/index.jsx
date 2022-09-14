@@ -64,7 +64,8 @@ const exerciseProjects = [
     bgcolor : '#FFFDE2',
     imageURL : "/projects/my-notepad.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools : ["HTML", "CSS", "Javascript", "React", "Express", "MongoDB"]
+    tools : ["HTML", "CSS", "Javascript", "React", "Express", "MongoDB"],
+    path : '/mynotepad'
   },
 
   {
