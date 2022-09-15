@@ -7,12 +7,19 @@
     --pallete5: #6D693B;
 }
 
-body
+/* body
 {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     background-color: var(--pallete1);
+} */
+
+.calculator-container{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: var(--pallete1);
+    width: 100%;
+    height: 100vh;
 }
 
 p
