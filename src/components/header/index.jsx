@@ -4,7 +4,7 @@ const buttons = ['Home', 'About Me', 'Skills', 'My Projects']
 
 const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
   return (
-    <AppBar sx={{ bgcolor: "white" }} elevation={1} position="fixed">
+    <AppBar sx={{ bgcolor: "white" }} elevation={0} position="fixed">
       <Container>
         <Toolbar disableGutters>
           <Typography

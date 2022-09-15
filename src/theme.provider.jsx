@@ -20,7 +20,7 @@ const theme = createTheme({
         fontFamily : "Poppins"
     },
     shadows : {
-        1 : "0px 2px 1px -1px rgba(0,0,0,0.1),0px 1px 1px 0px rgba(0,0,0,0.05),0px 1px 3px 0px rgba(0,0,0,0.02)"
+        0 : "0px 2px 1px -1px rgba(0,0,0,0.1),0px 1px 1px 0px rgba(0,0,0,0.05),0px 1px 3px 0px rgba(0,0,0,0.02)"
     }
 });
 

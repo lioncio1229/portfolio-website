@@ -10,21 +10,24 @@ import {
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { PhoneAndroid, Email, LocationCity } from "@mui/icons-material";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useSendEmail from "./useSendEmail";
-import React from "react";
+import useValidation from "./useValidation";
 
 const CustomTextField = styled(TextField)(() => ({
   width: "100%",
 }));
 
 const Form = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [subject, setSubject] = useState();
-  const [message, setMessage] = useState();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
 
   const [result, setResult] = useState('');
+
+  const {hasError, errorInfo} = useValidation();
 
   const { send, sending } = useSendEmail(
     "service_lioncio1229",
@@ -35,6 +38,8 @@ const Form = () => {
   );
 
   const handleSendMessage = () => {
+    setResult('');
+    if(hasError(name, email, subject, message)) return;
     send({
       from_name : name,
       from_email : email,
@@ -43,6 +48,16 @@ const Form = () => {
     });
   }
 
+  useEffect(() => {
+    if(result === 'success')
+    {
+      setName('')
+      setEmail('')
+      setSubject('')
+      setMessage('')
+    }
+  }, [result]);
+
   const SendResult = React.memo(() => 
     (
       result !== '' && <Snackbar
@@ -50,7 +65,7 @@ const Form = () => {
       autoHideDuration={5000}
       onClose={() => setResult('')}
     >
-      <Alert severity={result} sx={{ width: "100%" }}>
+      <Alert onClose={() => setResult('')} severity={result} sx={{ width: "100%" }}>
         {result === "success"
           ? "Thankyou for sending me an email"
           : "Something went wrong"}
@@ -58,12 +73,24 @@ const Form = () => {
       </Snackbar>
   ), [result]);
 
+  const {empty : emptyName, wordExceed} = errorInfo.name;
+  let nameValidation = {hasError : false, comment : ''};
+  if(emptyName) nameValidation = {hasError : true, comment : 'Please add your name, thanks'};
+  else if(wordExceed) nameValidation = {hasError : true, comment : 'Character Exceed'};
+
+  const {empty : emptyEmail, invalidEmail} = errorInfo.email;
+  let emailValidation = {hasError : false, comment : ''};
+  if(emptyEmail) emailValidation = {hasError : true, comment : 'Please add your email, thanks'};
+  else if(invalidEmail) emailValidation = {hasError : true, comment : 'Please use valid email, thanks'};
+
   return (
     <>
       <SendResult/>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <CustomTextField
+            error={nameValidation.hasError}
+            helperText={nameValidation.comment}
             variant="outlined"
             label="Name"
             value={name}
@@ -72,6 +99,8 @@ const Form = () => {
         </Grid>
         <Grid item xs={6}>
           <CustomTextField
+            error={emailValidation.hasError}
+            helperText={emailValidation.comment}
             variant="outlined"
             label="Email"
             value={email}
@@ -80,6 +109,8 @@ const Form = () => {
         </Grid>
         <Grid item xs={12}>
           <CustomTextField
+            error={errorInfo.subjectIsEmpty}
+            helperText={errorInfo.subjectIsEmpty && 'Please add subject, thanks'}
             variant="outlined"
             label="Subject"
             value={subject}
@@ -88,6 +119,8 @@ const Form = () => {
         </Grid>
         <Grid item xs={12}>
           <CustomTextField
+            error={errorInfo.messageIsEmpty}
+            helperText={errorInfo.messageIsEmpty && 'Please add message, thanks'}
             label="Message"
             multiline
             rows={5}
