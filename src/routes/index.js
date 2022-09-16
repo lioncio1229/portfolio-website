@@ -1,5 +1,5 @@
 import Homepage from "./homepage";
-import CalculatorApp from "./calculator";
+import CalculatorApp from "./simple-calculator";
 import ResistorColorCoding from "./resistor_color_coding";
 import MyNotepad from "./my-notepad";
 

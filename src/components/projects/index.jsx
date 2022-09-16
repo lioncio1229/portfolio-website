@@ -19,7 +19,8 @@ const Projects = ({title, projects}) => {
                   width={{xs : 450, sm : '38vw'}}
                   height={{xs : 300, sm : '25vw'}}
                   onViewClick={() => window.open(p.path, '_blank')}
-                  onViewAbout={p.viewAbout ? () => {} : null}
+                  onViewAboutClick={p.viewAbout ? () => {} : null}
+                  onTitleButtonClick = {() => window.open(p.titleButtonPath, '_blank')}
               />
             </Grid>
           ))}
@@ -53,7 +54,8 @@ const clientProjects = [
     imageURL : "/projects/spider.png",
     visitIcon : <Shop sx={{ fontSize: 45 }} />,
     tools : ["Unity Engine", "C#", "Blender", "Photoshop", "Audacity"],
-    path : '/spider-gagambattle'
+    path : '/spider-gagambattle',
+    titleButtonPath : '/spider-gagambattle'
   }
 ];
 
@@ -65,7 +67,8 @@ const exerciseProjects = [
     imageURL : "/projects/my-notepad.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["HTML", "CSS", "Javascript", "React", "Express", "MongoDB"],
-    path : '/mynotepad'
+    path : '/mynotepad',
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
   },
 
   {
@@ -75,7 +78,8 @@ const exerciseProjects = [
     imageURL : "/projects/simple-calculator.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["Javascript", "React", "MUI"],
-    path : '/calculator'
+    path : '/calculator',
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
   },
 
   {
@@ -86,7 +90,8 @@ const exerciseProjects = [
     imageURL : "/projects/resistor-color-coding.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["Javascript", "React", "MUI"],
-    path : '/resistor-color-coding'
+    path : '/resistor-color-coding',
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
   },
 
   {

@@ -34,7 +34,8 @@ const ProjectCard = ({
   titleFontSize = {xs : 24, sm: "2.5vw", md: "2vw" },
   descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18},
   onViewClick = null,
-  onViewAbout = null
+  onViewAboutClick = null,
+  onTitleButtonClick
 }) => {
 
   const [style, api] = useSpring(() => ({from : {zoom : 150, blur : 0}}));
@@ -82,7 +83,7 @@ const ProjectCard = ({
                 </Button>
               }
               {
-                onViewAbout && <Button
+                onViewAboutClick && <Button
                   variant="contained"
                   size="large"
                   color="primary"
@@ -114,7 +115,7 @@ const ProjectCard = ({
         >
           {title}
         </Typography>
-        <IconButton color="primary">{visitIcon}</IconButton>
+        <IconButton onClick={onTitleButtonClick} color="primary">{visitIcon}</IconButton>
       </Stack>
       <Typography color="primary" sx={{ fontSize: descriptionFontSize }}>
         {description}
