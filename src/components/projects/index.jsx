@@ -1,10 +1,8 @@
 import ProjectCard from "./project.card";
 import { GitHub, Shop} from "@mui/icons-material";
 import { Grid, Typography, Box } from "@mui/material";
-import {useNavigate} from "react-router-dom";
 
 const Projects = ({title, projects}) => {
-  const navigate = useNavigate();
     return (
       <Box>
         <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
@@ -20,7 +18,8 @@ const Projects = ({title, projects}) => {
                   tools={p.tools}
                   width={{xs : 450, sm : '38vw'}}
                   height={{xs : 300, sm : '25vw'}}
-                  onViewClick={() => navigate(p.path)}
+                  onViewClick={() => window.open(p.path, '_blank')}
+                  onViewAbout={p.viewAbout ? () => {} : null}
               />
             </Grid>
           ))}
@@ -41,7 +40,8 @@ const clientProjects = [
     imageURL : "/projects/olinsterg.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["HTML", "CSS", "Javascript", "PHP", "Mysql"],
-    path : '/olinsterg-unlock'
+    path : '/olinsterg-unlock',
+    viewAbout : true
   },
 
   {
@@ -96,7 +96,8 @@ const exerciseProjects = [
     bgcolor : '#F8FFB7',
     imageURL : "/projects/CCI.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
-    tools :  ["HTML", "CSS", "Javascript", "PHP"]
+    tools :  ["HTML", "CSS", "Javascript", "PHP"],
+    path : '/cci'
   },
 ];
 

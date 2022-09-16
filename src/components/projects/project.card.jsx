@@ -33,7 +33,8 @@ const ProjectCard = ({
   height = 350,
   titleFontSize = {xs : 24, sm: "2.5vw", md: "2vw" },
   descriptionFontSize = {sm : "2vw", md : "1.57vw", lg : 18},
-  onViewClick
+  onViewClick = null,
+  onViewAbout = null
 }) => {
 
   const [style, api] = useSpring(() => ({from : {zoom : 150, blur : 0}}));
@@ -67,27 +68,31 @@ const ProjectCard = ({
               direction="row"
               gap={2}
             >
-              <Button
-                variant="contained"
-                size="large"
-                color="primary"
-                sx={{ width: 170 }}
-                onClick={onViewClick}
-              >
-                <Typography color="white" fontSize={12}>
-                  View
-                </Typography>
-              </Button>
-              <Button
-                variant="contained"
-                size="large"
-                color="primary"
-                sx={{ width: 170, display: { xs: "none", lg: "block" } }}
-              >
-                <Typography color="white" fontSize={10}>
-                  View on another tab
-                </Typography>
-              </Button>
+              {
+                onViewClick && <Button
+                  variant="contained"
+                  size="large"
+                  color="primary"
+                  sx={{ width: 170 }}
+                  onClick={onViewClick}
+                >
+                  <Typography color="white" fontSize={12}>
+                    View
+                  </Typography>
+                </Button>
+              }
+              {
+                onViewAbout && <Button
+                  variant="contained"
+                  size="large"
+                  color="primary"
+                  sx={{ width: 170}}
+                >
+                  <Typography color="white" fontSize={10}>
+                    View About
+                  </Typography>
+                </Button>
+              }
             </Stack>
           </animated.div>
           <animated.img

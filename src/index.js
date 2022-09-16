@@ -19,22 +19,24 @@ root.render(
         <Route
           path="/olinsterg-unlock"
           element={
-            <ExternalLink link={"http://olinstergunlock.000webhostapp.com/"} />
+            <ExternalLink link="http://olinstergunlock.000webhostapp.com/" />
           }
         />
         <Route
           path="/spider-gagambattle"
           element={
             <ExternalLink
-              link={
-                "https://play.google.com/store/apps/details?id=com.JarmelaProduction.Gagamgirls_Spider_Gagambattle_MVG&hl=en&gl=US"
-              }
+              link="https://play.google.com/store/apps/details?id=com.JarmelaProduction.Gagamgirls_Spider_Gagambattle_MVG&hl=en&gl=US"
             />
           }
         />
         <Route
           path="/mynotepad"
           element={<MyNotepad/>}
+        /> 
+        <Route
+          path="/cci"
+          element={<ExternalLink link='https://ciphercryptography.000webhostapp.com/' />}
         /> 
       </Routes>
     </BrowserRouter>
