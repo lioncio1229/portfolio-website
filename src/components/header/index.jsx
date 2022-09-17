@@ -1,5 +1,5 @@
-import { Stack, AppBar, Toolbar, Container, Typography, Button, IconButton, Box } from "@mui/material";
-import { Menu } from "@mui/icons-material";
+import { Stack, AppBar, Toolbar, Container, Typography, Button, IconButton } from "@mui/material";
+import { Menu, PersonAdd } from "@mui/icons-material";
 import MenuDrawer from "./menu.drawer";
 import { useState } from "react";
 
@@ -58,8 +58,7 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
                     variant="contained"
                     color="selected"
                   >
-                    {" "}
-                    {v}{" "}
+                    {v}
                   </Button>
                 ) : (
                   <Button
@@ -78,6 +77,7 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
               variant="contained"
               size="large"
               sx={{ width: 150 }}
+              startIcon={<PersonAdd/>}
             >
               Hire Me
             </Button>

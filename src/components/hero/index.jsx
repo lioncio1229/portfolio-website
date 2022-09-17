@@ -6,7 +6,7 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
-import { FacebookRounded, GitHub, LinkedIn} from "@mui/icons-material";
+import { FacebookRounded, GitHub, LinkedIn } from "@mui/icons-material";
 
 export const Title = ({onContactmeClick, onMyProjectClick}) => {
   return (

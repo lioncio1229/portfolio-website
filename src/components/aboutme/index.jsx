@@ -48,8 +48,9 @@ const Info = () => {
 
         <Typography color='primary' fontSize={20}>
             I'm graduated from Asian Institute of Technology and Education with the
-            Bachelor of Science in Information Technology. I have 4 years of programming experience
-            because before I go to college, I started learning programming on my own.
+            Bachelor of Science in Information Technology.
+            Before I go to college, I started learning programming on my own.
+            So now I have 4 years of programming experience.
         </Typography>
         
         {
