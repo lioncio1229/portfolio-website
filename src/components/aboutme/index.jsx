@@ -40,11 +40,16 @@ const Info = () => {
         <Typography variant="h4" fontWeight="bold" color="primary">
           About Me
         </Typography>
+
         <Typography color='primary' fontSize={20}>
-          I'm a fresh graduate student from Asian Institute of Technology and
-          Education, Bachelor of Science in Information Technology. I'm
-          passionate about Tech, so that's why I choose programming as my
-          career.
+            I'm passionate about innovative technology because it can changes lives.
+            Developing something that can help others is a great achievement to me.
+        </Typography>
+
+        <Typography color='primary' fontSize={20}>
+            I'm graduated from Asian Institute of Technology and Education with the
+            Bachelor of Science in Information Technology. I have 4 years of programming experience
+            because before I go to college, I started learning programming on my own.
         </Typography>
         
         {

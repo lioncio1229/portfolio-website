@@ -1,12 +1,10 @@
 import Chart from "react-apexcharts";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { skills } from "../aboutme";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const skillLevels = {
   names : [...skills.frontend.split(','), ...skills.backend.split(','), ...skills.gameDev.split(',')],
-  values : [90, 80, 75, 70, 30, 40, 25, 25, 24, 30, 60, 70, 60, 70]
+  values : [90, 80, 75, 70, 50, 60, 25, 25, 24, 35, 60, 65, 55, 60]
 }
 
 const options = {
@@ -34,7 +32,7 @@ const series = [
 const SkillLevels = () => {
   return (
     <Box>
-        <Typography variant='h4' fontWeight='bold' color='primary'>Skills</Typography>
+        <Typography variant='h4' fontWeight='bold' color='primary'>Skill Level</Typography>
         <Box sx={{ display: "flex", justifyContent: "center", width : '100%' }}>
           <Chart
               type="bar"

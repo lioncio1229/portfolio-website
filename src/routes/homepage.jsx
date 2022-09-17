@@ -58,22 +58,26 @@ const Homepage = () => {
     window.open(path, '_blank');
   } 
 
+  const nav = {
+    scrollMarginTop : '80px'
+  }
+
   return (
     <>
       <Header toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(4)} />
       <Box mt={7} mb={{xs : 10, md : 22}}>
         <Container>
           <Stack spacing={{xs : 10, sm : 15, md : 24}}>
-            <div ref={heroRef}> <Hero onContactmeClick={()=>setToolbox(4)} onMyProjectClick={()=>setToolbox(3)} /> </div>
-            <div ref={aboutMeRef}> <AboutMe/> </div>
-            <div ref={skillRef}><SkillLevels/></div>
-            <div ref={projectRef}>
+            <div style={nav} ref={heroRef}> <Hero onContactmeClick={()=>setToolbox(4)} onMyProjectClick={()=>setToolbox(3)} /> </div>
+            <div style={nav} ref={aboutMeRef}> <AboutMe/> </div>
+            <div style={nav} ref={skillRef}><SkillLevels/></div>
+            <div style={nav} ref={projectRef}>
               <div style={{marginBottom : '50px'}}>
                 <ClientProjects/>
               </div>
               <ExerciseProjects/>
             </div>
-            <div ref={contactMeRef}>
+            <div style={nav} ref={contactMeRef}>
               <Contact/>
             </div>
           </Stack>
