@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import MyTheme from './theme.provider';
-import { Homepage, CalculatorApp, ResistorColorCoding, MyNotepad, ExternalLink} from './routes';
+import { Homepage, CalculatorApp, ResistorColorCoding, MyNotepad, PdfRenderer, ExternalLink} from './routes';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -37,6 +37,10 @@ root.render(
         <Route
           path="/cci"
           element={<ExternalLink link='https://ciphercryptography.000webhostapp.com/' />}
+        /> 
+        <Route
+          path="/my_resume"
+          element={<PdfRenderer url='./morcilla-resume.pdf' />}
         /> 
       </Routes>
     </BrowserRouter>

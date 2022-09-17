@@ -68,8 +68,8 @@ const Info = () => {
         <SkillInfo title='Backend Skills' skills={skills.backend} />
         <SkillInfo title='Gamedev Skills' skills={skills.gameDev} />
         <Stack direction='row' spacing={2} justifyContent={{xs : 'center', sm : 'left'}}>
-            <Button variant="contained" color="primary" size='large'>More About Me</Button>
-            <Button variant="contained" color="primary" size='large'>View My Resume</Button>
+            {/* <Button variant="contained" color="primary" size='large'>More About Me</Button> */}
+            <Button onClick={() => window.open('/my_resume', '_blank')} variant="contained" color="primary" size='large'>View My Resume</Button>
         </Stack>
       </Stack>
     );
