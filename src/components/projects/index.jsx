@@ -2,37 +2,10 @@ import ProjectCard from "./project.card";
 import { GitHub, Shop} from "@mui/icons-material";
 import { Grid, Typography, Box } from "@mui/material";
 
-const Projects = ({title, projects}) => {
-    return (
-      <Box>
-        <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
-        <Grid container rowGap={10}>
-          {projects.map((p) => (
-            <Grid item xs={12} sm={6} display='flex' justifyContent='center' key={p.title}>
-              <ProjectCard 
-                  title={p.title}
-                  description={p.description}
-                  bgcolor={p.bgcolor}
-                  imageURL={p.imageURL}
-                  visitIcon={p.visitIcon}
-                  tools={p.tools}
-                  width={{xs : 450, sm : '38vw'}}
-                  height={{xs : 300, sm : '25vw'}}
-                  onViewClick={() => window.open(p.path, '_blank')}
-                  onViewAboutClick={p.viewAbout ? () => {} : null}
-                  onTitleButtonClick = {() => window.open(p.titleButtonPath, '_blank')}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    );
-};
-
 const clientProjects = [
   {
     title: "Olinsterg Unlock",
-    description: `This is an admin website for my client's capstone project.
+    description: `This is an admin monitoring system for my client's capstone project.
         Their project is a door-lock system using RFID for their 
         crime laboratory where they need to record each access
         information to the database where can be manage by
@@ -42,7 +15,8 @@ const clientProjects = [
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["HTML", "CSS", "Javascript", "PHP", "Mysql"],
     path : '/olinsterg-unlock',
-    viewAbout : true
+    titleButtonPath : 'https://github.com/lioncio1229/Unlock.git',
+    viewAbout : '/olinsterg_unlock_video'
   },
 
   {
@@ -55,7 +29,8 @@ const clientProjects = [
     visitIcon : <Shop sx={{ fontSize: 45 }} />,
     tools : ["Unity Engine", "C#", "Blender", "Photoshop", "Audacity"],
     path : '/spider-gagambattle',
-    titleButtonPath : '/spider-gagambattle'
+    titleButtonPath : '/spider-gagambattle',
+    viewAbout : '/spidergagambattle_video'
   }
 ];
 
@@ -68,7 +43,8 @@ const exerciseProjects = [
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["HTML", "CSS", "Javascript", "React", "Express", "MongoDB"],
     path : '/mynotepad',
-    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git',
+    viewAbout : null
   },
 
   {
@@ -79,7 +55,8 @@ const exerciseProjects = [
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["Javascript", "React", "MUI"],
     path : '/calculator',
-    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git',
+    viewAbout : null
   },
 
   {
@@ -91,7 +68,8 @@ const exerciseProjects = [
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools : ["Javascript", "React", "MUI"],
     path : '/resistor-color-coding',
-    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git'
+    titleButtonPath : 'https://github.com/lioncio1229/exercise-projects.git',
+    viewAbout : null
   },
 
   {
@@ -102,14 +80,46 @@ const exerciseProjects = [
     imageURL : "/projects/CCI.png",
     visitIcon : <GitHub sx={{ fontSize: 45 }} />,
     tools :  ["HTML", "CSS", "Javascript", "PHP"],
-    path : '/cci'
+    path : '/cci',
+    titleButtonPath : 'https://github.com/lioncio1229/Cipher-Cryptography-Illustrator.git',
+    viewAbout : null
   },
 ];
 
-export const ClientProjects = () => {
-    return <Projects title='Client Projects' projects={clientProjects}/>
-}
+const Projects = ({title, projects}) => (
+  <Box>
 
-export const ExerciseProjects = () => {
-    return <Projects title='Exercise Projects I did' projects={exerciseProjects}/>
-}
+    <Typography variant='h4' fontWeight='bold' color='primary' pb={3}>{title}</Typography>
+
+    <Grid container rowGap={10}>
+      {
+        projects.map((p) => (
+          <Grid item xs={12} sm={6} display='flex' justifyContent='center' key={p.title}>
+
+            <ProjectCard 
+                title={p.title}
+                description={p.description}
+                bgcolor={p.bgcolor}
+
+                imageURL={p.imageURL}
+                visitIcon={p.visitIcon}
+                tools={p.tools}
+                width={{xs : 450, sm : '38vw'}}
+                height={{xs : 300, sm : '25vw'}}
+
+                onViewClick={() => window.open(p.path, '_blank')}
+                onViewAboutClick={p.viewAbout ? () => window.open(p.viewAbout, '_blank') : null}
+                onTitleButtonClick = {() => window.open(p.titleButtonPath, '_blank')}
+            />
+
+          </Grid>
+        ))
+      }
+    </Grid>
+
+  </Box>
+);
+
+export const ClientProjects = () => <Projects title='Client Projects' projects={clientProjects}/>
+
+export const ExerciseProjects = () => <Projects title='Exercise Projects I did' projects={exerciseProjects}/>

@@ -88,9 +88,10 @@ const ProjectCard = ({
                   size="large"
                   color="primary"
                   sx={{ width: 170}}
+                  onClick={onViewAboutClick}
                 >
                   <Typography color="white" fontSize={10}>
-                    View About
+                    Video
                   </Typography>
                 </Button>
               }
