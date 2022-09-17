@@ -3,7 +3,12 @@ const useScroll = () => {
 
     const to = (ref) => {
         if(ref && ref.current)
-            ref.current.scrollIntoView({ behavior: 'smooth', block: 'start'});
+            window.innerWidth < 900
+              ? ref.current.scrollIntoView()
+              : ref.current.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
     }
 
     const getElementPos = (ref) => {

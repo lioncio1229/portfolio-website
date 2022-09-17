@@ -1,40 +1,90 @@
-import { Stack, AppBar, Toolbar, Container, Typography, Button } from "@mui/material";
+import { Stack, AppBar, Toolbar, Container, Typography, Button, IconButton, Box } from "@mui/material";
+import { Menu } from "@mui/icons-material";
+import MenuDrawer from "./menu.drawer";
+import { useState } from "react";
 
 const buttons = ['Home', 'About Me', 'Skills', 'My Projects']
 
 const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
-    <AppBar sx={{ bgcolor: "white" }} elevation={0} position="fixed">
-      <Container>
-        <Toolbar disableGutters>
-          <Typography
-            color="primary"
-            fontWeight="bold"
-            fontSize={33}
-            sx={{ flexGrow: { xs: 1, md: 0 } }}
-          >
-            MORCILLA
-          </Typography>
+    <>
+      <MenuDrawer
+        buttons={buttons}
+        open={isDrawerOpen}
+        onOpen={() => setIsDrawerOpen(true)}
+        onClose={() => setIsDrawerOpen(false)}
+        index={toolbarIndex}
+        setIndex={setToolbarIndex}
+      />
 
-          <Stack direction='row' gap={1} flexGrow={1} ml={2} sx={{display: { xs: 'none', md: 'flex' }}}>
-            {buttons.map((v, i) =>
-              i === toolbarIndex ? 
-                <Button
-                  key={i}
-                  onClick={() => setToolbarIndex(i)}
-                  variant="contained"
-                  color="selected"
-                > {v} </Button>
-               : <Button key={i} onClick={() => setToolbarIndex(i)} variant="text">{v}</Button>
-            )}
-          </Stack>
+      <AppBar sx={{ bgcolor: "white" }} elevation={0} position="fixed">
+        <Container>
+          <Toolbar disableGutters>
 
-          <Button onClick={onHireMeClick} variant="contained" size="large" sx={{ width: 150 }}>
-            Hire Me
-          </Button>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="primary"
+              aria-label="menu"
+              sx={{ mr: 2, display: { xs: "flex", md: "none" } }}
+              onClick={() => setIsDrawerOpen(true)}
+            >
+              <Menu />
+            </IconButton>
+
+            <Typography
+              color="primary"
+              fontWeight="bold"
+              fontSize={33}
+              sx={{ flexGrow: { xs: 1, md: 0 } }}
+            >
+              MORCILLA
+            </Typography>
+
+            <Stack
+              direction="row"
+              gap={1}
+              flexGrow={1}
+              ml={2}
+              sx={{ display: { xs: "none", md: "flex" } }}
+            >
+              {buttons.map((v, i) =>
+                i === toolbarIndex ? (
+                  <Button
+                    key={i}
+                    onClick={() => setToolbarIndex(i)}
+                    variant="contained"
+                    color="selected"
+                  >
+                    {" "}
+                    {v}{" "}
+                  </Button>
+                ) : (
+                  <Button
+                    key={i}
+                    onClick={() => setToolbarIndex(i)}
+                    variant="text"
+                  >
+                    {v}
+                  </Button>
+                )
+              )}
+            </Stack>
+
+            <Button
+              onClick={onHireMeClick}
+              variant="contained"
+              size="large"
+              sx={{ width: 150 }}
+            >
+              Hire Me
+            </Button>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 };
 
