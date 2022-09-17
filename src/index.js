@@ -10,18 +10,23 @@ root.render(
   <MyTheme>
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Homepage />} />
+
         <Route path="/calculator" element={<CalculatorApp />} />
+
         <Route
           path="/resistor-color-coding"
           element={<ResistorColorCoding />}
         />
+
         <Route
           path="/olinsterg-unlock"
           element={
             <ExternalLink link="http://olinstergunlock.000webhostapp.com/" />
           }
         />
+
         <Route
           path="/spider-gagambattle"
           element={
@@ -30,18 +35,35 @@ root.render(
             />
           }
         />
+        
         <Route
           path="/mynotepad"
           element={<MyNotepad/>}
         /> 
+
         <Route
           path="/cci"
           element={<ExternalLink link='https://ciphercryptography.000webhostapp.com/' />}
         /> 
+
         <Route
           path="/my_resume"
           element={<PdfRenderer url='./morcilla-resume.pdf' />}
-        /> 
+        />
+
+        <Route
+          path="/facebook"
+          element={<ExternalLink link='https://www.facebook.com/lioncio.morcilla.75/' />}
+        />
+        <Route
+          path="/linkedin"
+          element={<ExternalLink link='https://www.linkedin.com/in/lioncio-morcilla-35b9ba203/' />}
+        />
+        <Route
+          path="/github"
+          element={<ExternalLink link='https://github.com/lioncio1229' />}
+        />
+
       </Routes>
     </BrowserRouter>
   </MyTheme>

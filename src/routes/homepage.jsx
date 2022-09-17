@@ -5,7 +5,7 @@ import SkillLevels from "../components/skill_levels";
 import { ClientProjects, ExerciseProjects } from "../components/projects";
 import Contact from "../components/contact";
 import { Stack, Container, Box, IconButton, Typography } from "@mui/material";
-import { FacebookRounded, GitHub, Twitter } from "@mui/icons-material";
+import { FacebookRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { useState, useRef, useEffect} from "react";
 import useScroll from "../useScroll";
 
@@ -54,6 +54,10 @@ const Homepage = () => {
     document.addEventListener('wheel', e => updateSelectedButton(e));
   });
 
+  const openRoute = (path) => {
+    window.open(path, '_blank');
+  } 
+
   return (
     <>
       <Header toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(4)} />
@@ -81,14 +85,14 @@ const Homepage = () => {
           <Stack sx={{height : '100%'}} justifyContent='center'>
             <Typography color='white' sx={{fontSize : 17}} textAlign='center'> Thanks for visiting my site ☺ </Typography>
             <Stack direction="row" justifyContent="center" spacing={1}>
-              <IconButton sx={{color : 'white'}}>
+              <IconButton sx={{color : 'white'}} onClick={() => openRoute('/facebook')}>
                 <FacebookRounded fontSize="large" />
               </IconButton>
-              <IconButton sx={{color : 'white'}}>
-                <GitHub fontSize="large" />
+              <IconButton sx={{color : 'white'}} onClick={() => openRoute('/linkedin')}>
+                <LinkedIn fontSize="large" />
               </IconButton>
-              <IconButton sx={{color : 'white'}}>
-                <Twitter fontSize="large" />
+              <IconButton sx={{color : 'white'}} onClick={() => openRoute('/github')}>
+                <GitHub fontSize="large" />
               </IconButton>
             </Stack>
           </Stack>

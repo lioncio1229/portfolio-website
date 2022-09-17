@@ -4,10 +4,9 @@ import {
   Stack,
   Button,
   Typography,
-  Container,
   IconButton,
 } from "@mui/material";
-import { FacebookRounded, GitHub, Twitter } from "@mui/icons-material";
+import { FacebookRounded, GitHub, LinkedIn} from "@mui/icons-material";
 
 export const Title = ({onContactmeClick, onMyProjectClick}) => {
   return (
@@ -41,6 +40,10 @@ export const Title = ({onContactmeClick, onMyProjectClick}) => {
   );
 };
 
+const openRoute = (path) => {
+  window.open(path, '_blank');
+}
+
 const Hero = ({onContactmeClick, onMyProjectClick}) => {
   return (
      <Grid container>
@@ -52,14 +55,14 @@ const Hero = ({onContactmeClick, onMyProjectClick}) => {
       <Grid item xs={12} md={6}>
         <img width='100%' height='auto' src='/lioncio.png' alt="" />
         <Stack direction="row" justifyContent="center" spacing={1}>
-          <IconButton color="primary">
+          <IconButton color="primary" onClick={() => openRoute('/facebook')}>
             <FacebookRounded fontSize="large" />
           </IconButton>
-          <IconButton color="primary">
-            <GitHub fontSize="large" />
+          <IconButton color="primary" onClick={() => openRoute('/linkedin')}>
+            <LinkedIn fontSize="large" />
           </IconButton>
-          <IconButton color="primary">
-            <Twitter fontSize="large" />
+          <IconButton color="primary" onClick={() => openRoute('/github')}>
+            <GitHub fontSize="large" />
           </IconButton>
         </Stack>
       </Grid>
