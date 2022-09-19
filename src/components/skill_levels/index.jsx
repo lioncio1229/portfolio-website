@@ -1,5 +1,5 @@
 import Chart from "react-apexcharts";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import { skills } from "../aboutme";
 
 const skillLevels = {
@@ -33,15 +33,18 @@ const SkillLevels = () => {
   return (
     <Box>
         <Typography variant='h4' fontWeight='bold' color='primary'>Skill Level</Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", width : '100%' }}>
-          <Chart
-              type="bar"
-              options={options}
-              series={series}
-              width={450}
-              height={400}
-            />
+        <Box sx={{display : 'flex', justifyContent : 'center'}}>
+          <Box sx={{display : 'block', width : {xs : '100%', sm : 580}}}>
+            <Chart
+                type="bar"
+                options={options}
+                series={series}
+                width={'100%'}
+                height={400}
+              />
+          </Box>
         </Box>
+
     </Box>
   );
 };

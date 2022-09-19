@@ -26,12 +26,12 @@ export const Title = ({onContactmeClick, onMyProjectClick}) => {
 
         <Stack direction="row" spacing={2} justifyContent={{xs : 'center', sm : 'center', md : 'left'}}>
           <Button variant="contained" color="selected" onClick={onContactmeClick}>
-            <Typography fontSize={23} fontWeight="bold">
+            <Typography fontSize={{xs : '4vw', sm : 23}} fontWeight="bold">
               Contact Me
             </Typography>
           </Button>
           <Button variant="outlined" color="primary" onClick={onMyProjectClick}>
-            <Typography fontSize={23} fontWeight="bold">
+            <Typography fontSize={{xs : '4vw', sm : 23}} fontWeight="bold">
               My Projects
             </Typography>
           </Button>

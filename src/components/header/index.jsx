@@ -37,8 +37,8 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
             <Typography
               color="primary"
               fontWeight="bold"
-              fontSize={33}
-              sx={{ flexGrow: { xs: 1, md: 0 } }}
+              sx={{ flexGrow: { xs: 1, md: 0 }, fontSize : {xs : '5vw', sm : 33}, cursor : 'pointer' }}
+              onClick={() => setToolbarIndex(0)}
             >
               MORCILLA
             </Typography>

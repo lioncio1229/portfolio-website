@@ -21,7 +21,7 @@ const SkillInfo = ({title, skills}) => {
     return (
         <Box>
             <Typography variant='h6' color='primary' fontWeight='bold'>{title}</Typography>
-            <Stack direction='row' spacing={1}>
+            <Stack direction='row' flexWrap='wrap' gap={1}>
             {
                 skills.split(',').map(item => (
                     <CustomChip key={item} label={item}/>
@@ -36,46 +36,63 @@ const Info = () => {
 
     return (
       <Stack spacing={3}>
-
         <Typography variant="h4" fontWeight="bold" color="primary">
           About Me
         </Typography>
 
-        <Typography color='primary' fontSize={20}>
-            I'm passionate about innovative technology because it can changes lives.
-            Developing something that can help others is a great achievement to me.
+        <Typography color="primary" fontSize={20}>
+          I'm passionate about innovative technology because it can changes
+          lives. Developing something that can help others is a great
+          achievement to me.
         </Typography>
 
-        <Typography color='primary' fontSize={20}>
-            I'm graduated from Asian Institute of Technology and Education with the
-            Bachelor of Science in Information Technology.
-            Before I go to college, I started learning programming on my own.
-            So now I have 4 years of programming experience.
+        <Typography color="primary" fontSize={20}>
+          I'm graduated from Asian Institute of Technology and Education with
+          the Bachelor of Science in Information Technology. Before I go to
+          college, I started learning programming on my own. So now I have 4
+          years of programming experience.
         </Typography>
-        
-        {
-            myInfos.map(info => (
-                <Grid container alignItems='center' key={info.label}>
-                    <Grid item xs={1}>
-                        {info.icon}
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography  fontSize={18} color='primary'>{info.label}</Typography>
-                    </Grid>
-                    <Grid item xs={1}><Typography  fontSize={18} color='primary'>:</Typography></Grid>
-                    <Grid item xs={6}>
-                        <Typography  fontSize={18} color='primary'>{info.value}</Typography>
-                    </Grid>
-                </Grid>
-            ))
-        }
 
-        <SkillInfo title='Frontend Skills' skills={skills.frontend} />
-        <SkillInfo title='Backend Skills' skills={skills.backend} />
-        <SkillInfo title='Gamedev Skills' skills={skills.gameDev} />
-        <Stack direction='row' spacing={2} justifyContent={{xs : 'center', sm : 'left'}}>
-            {/* <Button variant="contained" color="primary" size='large'>More About Me</Button> */}
-            <Button onClick={() => window.open('/my_resume', '_blank')} variant="contained" color="primary" size='large'>View My Resume</Button>
+        {myInfos.map((info) => (
+          <Grid container alignItems="center" key={info.label}>
+            <Grid item xs={1} sx={{mr : {xs : '10px'}}}>
+              {info.icon}
+            </Grid>
+            <Grid item xs={3}>
+              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+                {info.label}
+              </Typography>
+            </Grid>
+            <Grid item xs={1}>
+              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+                :
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+                {info.value}
+              </Typography>
+            </Grid>
+          </Grid>
+        ))}
+
+        <SkillInfo title="Frontend Skills" skills={skills.frontend} />
+        <SkillInfo title="Backend Skills" skills={skills.backend} />
+        <SkillInfo title="Gamedev Skills" skills={skills.gameDev} />
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent={{ xs: "center", sm: "left" }}
+        >
+          {/* <Button variant="contained" color="primary" size='large'>More About Me</Button> */}
+          <Button
+            onClick={() => window.open("/my_resume", "_blank")}
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            View My Resume
+          </Button>
         </Stack>
       </Stack>
     );

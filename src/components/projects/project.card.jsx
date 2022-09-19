@@ -1,4 +1,4 @@
-import { styled, Box, Stack, Typography, IconButton, Button} from "@mui/material";
+import { styled, Box, Stack, Grid, Typography, IconButton, Button} from "@mui/material";
 import { CustomChip } from "../aboutme";
 import { useSpring, animated } from "react-spring";
 
@@ -21,6 +21,20 @@ const imgStyle = {
     width: '150%',
     height: 'auto',
 }
+
+const CardButton = ({label, onClick}) => (
+  <Button
+    variant="contained"
+    size="large"
+    color="primary"
+    sx={{ width: 170 }}
+    onClick={onClick}
+  >
+    <Typography color="white" fontSize={12}>
+      {label}
+    </Typography>
+  </Button>
+);
 
 const ProjectCard = ({
   title,
@@ -64,38 +78,24 @@ const ProjectCard = ({
           }}
         >
           <animated.div style={{ opacity: style.blur }}>
-            <Stack
-              sx={{ ...absoluteCenter, zIndex: 2 }}
-              direction="row"
+            <Grid
+              container
+              sx={{...absoluteCenter, zIndex: 2, justifyContent : 'center'}}
               gap={2}
             >
               {
-                onViewClick && <Button
-                  variant="contained"
-                  size="large"
-                  color="primary"
-                  sx={{ width: 170 }}
-                  onClick={onViewClick}
-                >
-                  <Typography color="white" fontSize={12}>
-                    View
-                  </Typography>
-                </Button>
+                onViewClick && 
+                <Grid item sx={{display : 'flex', justifyContent : 'center'}}>
+                  <CardButton label='View' onClick={onViewClick} />
+                </Grid>
               }
               {
-                onViewAboutClick && <Button
-                  variant="contained"
-                  size="large"
-                  color="primary"
-                  sx={{ width: 170}}
-                  onClick={onViewAboutClick}
-                >
-                  <Typography color="white" fontSize={10}>
-                    Video
-                  </Typography>
-                </Button>
+                onViewAboutClick && 
+                <Grid item sx={{display : 'flex', justifyContent : 'center'}}>
+                  <CardButton label='Video' onClick={onViewAboutClick} />
+                </Grid>
               }
-            </Stack>
+            </Grid>
           </animated.div>
           <animated.img
             src={imageURL}
@@ -106,6 +106,7 @@ const ProjectCard = ({
             }}
           />
         </CustomBox>
+
       </CustomBox>
 
       <Stack direction="row" justifyContent="space-between" alignItems="center">
