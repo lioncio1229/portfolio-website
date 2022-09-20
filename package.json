@@ -27,6 +27,7 @@
     "react-scripts": "5.0.1",
     "react-speech-kit": "^3.0.1",
     "react-spring": "^9.5.2",
+    "typeface-poppins": "^1.1.13",
     "uniqid": "^5.4.0",
     "use-combined-reducers": "^1.0.4",
     "web-vitals": "^2.1.4"

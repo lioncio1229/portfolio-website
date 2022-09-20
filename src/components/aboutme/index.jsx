@@ -1,4 +1,4 @@
-import { Stack, Box, Grid, Container, Typography, Chip, Button } from "@mui/material";
+import { Stack, Box, Grid, Typography, Chip, Button } from "@mui/material";
 import {Person, Smartphone, Email} from '@mui/icons-material';
 
 const myInfos = [
@@ -10,7 +10,8 @@ const myInfos = [
 export const skills = {
     frontend : 'HTML,CSS,Javascript,Reactjs,MUI,Adobe XD',
     backend : 'Expressjs,MongoDB,Mysql,PHP',
-    gameDev : 'UnityEngine,C#,Adobe Photoshop,Blender 3D'
+    gameDev : 'UnityEngine,C#,Adobe Photoshop,Blender 3D',
+    others : 'Git,Github'
 }
 
 export const CustomChip = ({label}) => {
@@ -79,6 +80,8 @@ const Info = () => {
         <SkillInfo title="Frontend Skills" skills={skills.frontend} />
         <SkillInfo title="Backend Skills" skills={skills.backend} />
         <SkillInfo title="Gamedev Skills" skills={skills.gameDev} />
+        <SkillInfo title="Others" skills={skills.others} />
+
         <Stack
           direction="row"
           spacing={2}

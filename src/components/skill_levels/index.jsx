@@ -3,8 +3,8 @@ import { Box, Typography, Container } from "@mui/material";
 import { skills } from "../aboutme";
 
 const skillLevels = {
-  names : [...skills.frontend.split(','), ...skills.backend.split(','), ...skills.gameDev.split(',')],
-  values : [90, 80, 75, 70, 50, 60, 25, 25, 24, 35, 60, 65, 55, 60]
+  names : Object.keys(skills).reduce((prev, key) => [...prev, ...skills[key].split(',')], []),
+  values : [90, 80, 75, 70, 50, 60, 25, 25, 24, 35, 60, 65, 55, 60, 40, 43]
 }
 
 const options = {
