@@ -85,7 +85,7 @@ const Form = () => {
       <>
         <SendResult/>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={12} lg={6}>
             <CustomTextField
               error={nameValidation.hasError}
               helperText={nameValidation.comment}
@@ -95,7 +95,7 @@ const Form = () => {
               onChange={(e) => setName(e.target.value)}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} lg={6}>
             <CustomTextField
               error={emailValidation.hasError}
               helperText={emailValidation.comment}
