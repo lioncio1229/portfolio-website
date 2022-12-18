@@ -35,7 +35,12 @@ root.render(
           }
         />
 
-        <Route path="/mynotepad" element={<MyNotepad />} />
+        <Route
+          path="/mynotepad"
+          element={
+            <ExternalLink link="https://my-notepad.onrender.com/" />
+          }
+        />
 
         <Route
           path="/cci"
