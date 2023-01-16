@@ -38,7 +38,7 @@ root.render(
         <Route
           path="/mynotepad"
           element={
-            <ExternalLink link="https://my-notepad.onrender.com/" />
+            <ExternalLink link="https://mynotepad.onrender.com/" />
           }
         />
 
