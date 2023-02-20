@@ -2,12 +2,15 @@ import Header from "../components/header";
 import Hero from "../components/hero";
 import AboutMe from "../components/aboutme";
 import SkillLevels from "../components/skill_levels";
+import JobExperience from '../components/job-experience';
 import { ClientProjects, ExerciseProjects } from "../components/projects";
 import Contact from "../components/contact";
 import { Stack, Container, Box, IconButton, Typography } from "@mui/material";
 import { FacebookRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { useState, useRef, useEffect} from "react";
 import useScroll from "../useScroll";
+import config from "../config";
+
 
 const Homepage = () => {
 
@@ -18,6 +21,7 @@ const Homepage = () => {
   const skillRef = useRef(null);
   const projectRef = useRef(null);
   const contactMeRef = useRef(null);
+  const workExpRef = useRef(null);
 
   const {to, getElementPos, getElementHeight, getScrollPos} = useScroll();
 
@@ -26,9 +30,10 @@ const Homepage = () => {
     {
       case 0: to(heroRef); break;
       case 1: to(aboutMeRef); break;
-      case 2: to(skillRef); break;
+      case 2: to(workExpRef); break;
       case 3: to(projectRef); break;
-      case 4: to(contactMeRef); break;
+      case 4: to(skillRef); break;
+      case 5: to(contactMeRef); break;
     }
     setToolboxIndex(index);
   }
@@ -37,17 +42,20 @@ const Homepage = () => {
     const locations = [
       getElementHeight(heroRef) + getElementPos(heroRef),
       getElementHeight(aboutMeRef) + getElementPos(aboutMeRef),
-      getElementHeight(skillRef) + getElementPos(skillRef),
+      getElementHeight(workExpRef) + getElementPos(workExpRef),
       getElementHeight(projectRef) + getElementPos(projectRef),
+      getElementHeight(skillRef) + getElementPos(skillRef),
       getElementHeight(contactMeRef) + getElementPos(contactMeRef),
     ];
     
     const scrollPos = getScrollPos();
-    if(scrollPos <= locations[0]) setToolboxIndex(0);
-    else if(scrollPos <= locations[1]) setToolboxIndex(1);
-    else if(scrollPos <= locations[2]) setToolboxIndex(2);
-    else if(scrollPos <= locations[3]) setToolboxIndex(3);
-    else if(scrollPos <= locations[4]) setToolboxIndex(4);
+    for (let i = 0; i < locations.length; i++) {
+        if(scrollPos <= locations[i])
+        {
+          setToolboxIndex(i);
+          break;
+        }
+    }
   }
 
   useEffect(() => {
@@ -64,19 +72,20 @@ const Homepage = () => {
 
   return (
     <>
-      <Header toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(4)} />
+      <Header buttons={config.headerButtons} toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(5)} />
       <Box mt={7} mb={{xs : 10, md : 22}}>
         <Container>
           <Stack spacing={{xs : 10, sm : 15, md : 24}}>
-            <div style={nav} ref={heroRef}> <Hero onContactmeClick={()=>setToolbox(4)} onMyProjectClick={()=>setToolbox(3)} /> </div>
+            <div style={nav} ref={heroRef}> <Hero onContactmeClick={()=>setToolbox(5)} onMyProjectClick={()=>setToolbox(3)} /> </div>
             <div style={nav} ref={aboutMeRef}> <AboutMe/> </div>
-            <div style={nav} ref={skillRef}><SkillLevels/></div>
+            <div style={nav} ref={workExpRef}><JobExperience/></div>
             <div style={nav} ref={projectRef}>
               <div style={{marginBottom : '50px'}}>
                 <ClientProjects/>
               </div>
               <ExerciseProjects/>
             </div>
+            <div style={nav} ref={skillRef}><SkillLevels/></div>
             <div style={nav} ref={contactMeRef}>
               <Contact/>
             </div>

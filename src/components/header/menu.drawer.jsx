@@ -1,12 +1,13 @@
 import { SwipeableDrawer, List, ListItemButton, ListItemText, ListItemIcon } from "@mui/material";
-import { ArrowForward, Home, Person, Psychology, Task } from "@mui/icons-material";
+import { ArrowForward, Home, Person, Psychology, Task, Work } from "@mui/icons-material";
 
 const icons = [
     <Home/>,
     <Person/>,
+    <Work/>,
+    <Task/>,
     <Psychology/>,
-    <Task/>
-]
+];
 
 const MenuSwipeableDrawer = ({open, buttons, index, setIndex, onOpen, onClose}) => {
 

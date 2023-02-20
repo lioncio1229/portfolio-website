@@ -3,9 +3,7 @@ import { Menu, PersonAdd } from "@mui/icons-material";
 import MenuDrawer from "./menu.drawer";
 import { useState } from "react";
 
-const buttons = ['Home', 'About Me', 'Skills', 'My Projects']
-
-const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
+const Header = ({buttons, toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -57,6 +55,7 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
                     onClick={() => setToolbarIndex(i)}
                     variant="contained"
                     color="selected"
+                    sx={{fontSize: {md: '1.3vw', lg: 15}}}
                   >
                     {v}
                   </Button>
@@ -65,6 +64,7 @@ const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
                     key={i}
                     onClick={() => setToolbarIndex(i)}
                     variant="text"
+                    sx={{fontSize: {md: '1.3vw', lg: 15}}}
                   >
                     {v}
                   </Button>
