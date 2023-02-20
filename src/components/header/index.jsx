@@ -3,9 +3,7 @@ import { Menu, PersonAdd } from "@mui/icons-material";
 import MenuDrawer from "./menu.drawer";
 import { useState } from "react";
 
-const buttons = ['Home', 'About Me', 'Skills', 'My Projects']
-
-const Header = ({toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
+const Header = ({buttons, toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
