@@ -54,7 +54,7 @@ const ContactInfos = () => {
             </Typography>
             <Typography
               sx={{ fontSize: { xs: 17, md: "1.4vw" } }}
-              nowrap={false}
+              noWrap={false}
               color="primary"
             >
               {v.value}
