@@ -68,11 +68,12 @@ const Homepage = () => {
   const workExp = [
     {
       title: "Software Engineer",
+      description: "I work as a software engineer there. Yeah. Very nice experience yeahh.. yeahhh Yeah like I said, yeahhhs",
       company: "Smartwave BAV",
       date: "October 2 2023 - present",
       location: "Muntinlupa",
       jobType: "Fulltime",
-      logo: "/company-logo/smartwave.jpg"
+      logo: "/company-logo/smartwave.jpg",
     },
     {
       title: "Software Engineer",

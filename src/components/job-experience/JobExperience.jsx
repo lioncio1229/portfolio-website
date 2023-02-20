@@ -21,13 +21,12 @@ const TextWithIcon = ({ text, icon }) => (
   </Stack>
 );
 
-const Item = ({ title, company, location, jobType, date, logo }) => (
-  <Box>
+const Item = ({ title, description, company, location, jobType, date, logo }) => (
+  <Stack rowGap={2}>
     <Stack
       direction="row"
       justifyContent="space-between"
       height={65}
-      marginBottom={2}
       marginTop={2}
     >
       <Stack direction="row">
@@ -66,8 +65,16 @@ const Item = ({ title, company, location, jobType, date, logo }) => (
         {date && <TextWithIcon text={date} icon={<CalendarMonth />} />}
       </Stack>
     </Stack>
+    {
+        description && 
+        <Box sx={{bgcolor: 'white', ml:'80px', borderRadius: 3, p: 2}}>
+            <Typography color="primary" sx={{ fontSize: 15 }}>
+                {description}
+            </Typography>
+        </Box>
+    }
     <Divider />
-  </Box>
+  </Stack>
 );
 
 const JobExperience = ({items}) => {
@@ -78,6 +85,7 @@ const JobExperience = ({items}) => {
                 {
                     items.map(item => <Item
                         title={item.title}
+                        description={item.description}
                         company={item.company}
                         location={item.location}
                         jobType={item.jobType}
