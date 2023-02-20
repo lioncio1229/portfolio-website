@@ -33,6 +33,7 @@ const Item = ({ title, description, company, location, jobType, workDuration, lo
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                display: {xs: 'none', sm: 'block'}
             }}
             >
                 {
@@ -43,8 +44,9 @@ const Item = ({ title, description, company, location, jobType, workDuration, lo
             </Box>
             <Stack width='100%'>
                 <Stack
-                direction="row"
+                direction={{xs: 'column', sm: 'row'}}
                 justifyContent="space-between"
+                spacing={1}
                 >
                     <Stack justifyContent="space-between">
                         <Typography color="primary" sx={{ fontSize: 23 }}>
@@ -56,14 +58,14 @@ const Item = ({ title, description, company, location, jobType, workDuration, lo
                         </Stack>
                     </Stack>
 
-                    <Stack justifyContent="space-between" alignItems="flex-end">
+                    <Stack justifyContent="space-between" alignItems={{xs: 'flex-start', sm: 'flex-end'}} spacing={1}>
                         {jobType && <Chip label={jobType} color="primary" sx={{ width: 120 }} />}
                         {workDuration && <TextWithIcon text={workDuration} isActive={isActive} icon={<CalendarMonth />} />}
                     </Stack>
                 </Stack>
                 {
                     description && 
-                    <Box sx={{bgcolor: 'white', borderRadius: 3, p: 2}}>
+                    <Box sx={{bgcolor: 'white', borderRadius: 3, p: 2, mt: 1.5}}>
                         <Typography color="primary" sx={{ fontSize: 15 }}>
                             {description}
                         </Typography>
