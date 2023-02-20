@@ -55,6 +55,7 @@ const Header = ({buttons, toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
                     onClick={() => setToolbarIndex(i)}
                     variant="contained"
                     color="selected"
+                    sx={{fontSize: {md: '1.3vw', lg: 15}}}
                   >
                     {v}
                   </Button>
@@ -63,6 +64,7 @@ const Header = ({buttons, toolbarIndex=0, setToolbarIndex, onHireMeClick}) => {
                     key={i}
                     onClick={() => setToolbarIndex(i)}
                     variant="text"
+                    sx={{fontSize: {md: '1.3vw', lg: 15}}}
                   >
                     {v}
                   </Button>
