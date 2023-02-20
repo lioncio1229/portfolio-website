@@ -23,17 +23,16 @@ const TextWithIcon = ({ text, icon, isActive }) => (
 );
 
 const Item = ({ title, description, company, location, jobType, workDuration, logo, isActive }) => (
-  <Stack rowGap={1}>
+  <Stack spacing={2.5}>
         <Stack direction="row" mt={2}>
             <Box
             sx={{
                 width: 65,
                 height: 65,
                 bgcolor: "white",
-                display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                display: {xs: 'none', sm: 'block'}
+                display: {xs: 'none', sm: 'flex'}
             }}
             >
                 {
