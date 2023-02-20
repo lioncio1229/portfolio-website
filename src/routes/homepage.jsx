@@ -70,7 +70,8 @@ const Homepage = () => {
       title: "Software Engineer",
       description: "I work as a software engineer there. Yeah. Very nice experience yeahh.. yeahhh Yeah like I said, yeahhhs",
       company: "Smartwave BAV",
-      date: "October 2 2023 - present",
+      startDate: "2022/10/3",
+      endDate: "2023/4/3",
       location: "Muntinlupa",
       jobType: "Fulltime",
       logo: "/company-logo/smartwave.jpg",
@@ -78,7 +79,7 @@ const Homepage = () => {
     {
       title: "Software Engineer",
       company: "Smartwave BAV",
-      date: "October 2 2023 - present",
+      startDate: "2022/10/3",
       location: "Muntinlupa",
       jobType: "Fulltime"
     },

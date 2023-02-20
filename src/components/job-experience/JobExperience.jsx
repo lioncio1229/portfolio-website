@@ -1,7 +1,8 @@
 import { Stack, Typography, Chip, Box, Divider } from "@mui/material";
 import { Business, LocationOn, CalendarMonth, CropOriginal } from "@mui/icons-material";
+import { getWorkDuration } from "./utils";
 
-const TextWithIcon = ({ text, icon }) => (
+const TextWithIcon = ({ text, icon, isActive }) => (
   <Stack direction="row" alignItems="center">
     <Box
       sx={{ mr: 0.5, color: "primary.main" }}
@@ -13,7 +14,7 @@ const TextWithIcon = ({ text, icon }) => (
     <Typography
       color="primary"
       fontWeight="bold"
-      sx={{ fontSize: 12, color: "#b4b9cc" }}
+      sx={{ fontSize: 12, color: (isActive ? "green" : "#b4b9cc") }}
       marginRight={2}
     >
       {text}
@@ -21,7 +22,7 @@ const TextWithIcon = ({ text, icon }) => (
   </Stack>
 );
 
-const Item = ({ title, description, company, location, jobType, date, logo }) => (
+const Item = ({ title, description, company, location, jobType, workDuration, logo, isActive }) => (
   <Stack rowGap={2}>
     <Stack
       direction="row"
@@ -62,7 +63,7 @@ const Item = ({ title, description, company, location, jobType, date, logo }) =>
 
       <Stack justifyContent="space-between" alignItems="flex-end">
         {jobType && <Chip label={jobType} color="primary" sx={{ width: 120 }} />}
-        {date && <TextWithIcon text={date} icon={<CalendarMonth />} />}
+        {workDuration && <TextWithIcon text={workDuration} isActive={isActive} icon={<CalendarMonth />} />}
       </Stack>
     </Stack>
     {
@@ -89,7 +90,8 @@ const JobExperience = ({items}) => {
                         company={item.company}
                         location={item.location}
                         jobType={item.jobType}
-                        date={item.date}
+                        workDuration={getWorkDuration(item.startDate, item.endDate)}
+                        isActive={!item.endDate}
                         logo={item.logo}
                     />)
                 }
