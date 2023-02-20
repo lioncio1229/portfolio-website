@@ -1,6 +1,7 @@
-import { Stack, Typography, Chip, Box, Divider } from "@mui/material";
+import { Stack, Typography, Chip, Box, Divider, Button } from "@mui/material";
 import { Business, LocationOn, CalendarMonth, CropOriginal } from "@mui/icons-material";
 import { getWorkDuration } from "./utils";
+import { styled } from '@mui/material/styles';
 
 const TextWithIcon = ({ text, icon, isActive }) => (
   <Stack direction="row" alignItems="center">
@@ -21,6 +22,16 @@ const TextWithIcon = ({ text, icon, isActive }) => (
     </Typography>
   </Stack>
 );
+
+const InlineButton = styled(Button)(({theme}) => ({
+    backgroundColor: 'white',
+    fontSize: 13,
+    textTransform: 'none',
+    padding: '2px 10px',
+    '&:hover': {
+        backgroundColor: 'white',
+    },
+}));
 
 const Item = ({ title, description, company, location, jobType, workDuration, logo, isActive }) => (
   <Stack spacing={2.5}>
@@ -64,8 +75,9 @@ const Item = ({ title, description, company, location, jobType, workDuration, lo
                 </Stack>
                 {
                     description && 
-                    <Box sx={{bgcolor: 'white', borderRadius: 3, p: 2, mt: 1.5}}>
-                        <Typography color="primary" sx={{ fontSize: 15 }}>
+                    <Box sx={{bgcolor: 'white', borderRadius: 3, p: 2, mt: 1.5, position: 'relative'}}>
+                        <InlineButton sx={{position: 'absolute', bottom: 15, right: 10}}>...see more</InlineButton>
+                        <Typography color="primary" sx={{ fontSize: 14, height: 45, overflow: 'hidden' }}>
                             {description}
                         </Typography>
                     </Box>
