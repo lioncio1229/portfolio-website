@@ -55,15 +55,15 @@ const Item = ({ title, company, location, jobType, date, logo }) => (
             {title}
           </Typography>
           <Stack direction="row" justifyContent="space-between">
-            <TextWithIcon text={company} icon={<Business />} />
-            <TextWithIcon text={location} icon={<LocationOn />} />
+            {company && <TextWithIcon text={company} icon={<Business />} />}
+            {location && <TextWithIcon text={location} icon={<LocationOn />} />}
           </Stack>
         </Stack>
       </Stack>
 
       <Stack justifyContent="space-between" alignItems="flex-end">
-        <Chip label={jobType} color="primary" sx={{ width: 120 }} />
-        <TextWithIcon text={date} icon={<CalendarMonth />} />
+        {jobType && <Chip label={jobType} color="primary" sx={{ width: 120 }} />}
+        {date && <TextWithIcon text={date} icon={<CalendarMonth />} />}
       </Stack>
     </Stack>
     <Divider />
