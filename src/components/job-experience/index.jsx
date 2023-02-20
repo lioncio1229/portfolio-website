@@ -1,3 +1,6 @@
 import JobExperience from "./JobExperience";
+import config from "../../config";
 
-export default JobExperience;
+export default () => (
+    <JobExperience items={config.workExperiences}/>
+);

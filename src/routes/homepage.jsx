@@ -1,16 +1,16 @@
 import Header from "../components/header";
 import Hero from "../components/hero";
 import AboutMe from "../components/aboutme";
-import JobExperience from "../components/job-experience/JobExperience";
 import SkillLevels from "../components/skill_levels";
+import JobExperience from '../components/job-experience';
 import { ClientProjects, ExerciseProjects } from "../components/projects";
 import Contact from "../components/contact";
 import { Stack, Container, Box, IconButton, Typography } from "@mui/material";
 import { FacebookRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { useState, useRef, useEffect} from "react";
 import useScroll from "../useScroll";
+import config from "../config";
 
-const buttons = ['Home', 'About Me', 'Job Experience', 'My Projects', 'Skills']
 
 const Homepage = () => {
 
@@ -65,35 +65,15 @@ const Homepage = () => {
     scrollMarginTop : '80px'
   }
 
-  const workExp = [
-    {
-      title: "Software Engineer",
-      description: "I work as a software engineer there. Yeah. Very nice experience yeahh.. yeahhh Yeah like I said, yeahhhs",
-      company: "Smartwave BAV",
-      startDate: "2022/10/3",
-      endDate: "2023/4/3",
-      location: "Muntinlupa",
-      jobType: "Fulltime",
-      logo: "/company-logo/smartwave.jpg",
-    },
-    {
-      title: "Software Engineer",
-      company: "Smartwave BAV",
-      startDate: "2022/10/3",
-      location: "Muntinlupa",
-      jobType: "Fulltime"
-    },
-  ];
-
   return (
     <>
-      <Header buttons={buttons} toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(4)} />
+      <Header buttons={config.headerButtons} toolbarIndex={toolboxIndex} setToolbarIndex={setToolbox} onHireMeClick={() => setToolbox(4)} />
       <Box mt={7} mb={{xs : 10, md : 22}}>
         <Container>
           <Stack spacing={{xs : 10, sm : 15, md : 24}}>
             <div style={nav} ref={heroRef}> <Hero onContactmeClick={()=>setToolbox(4)} onMyProjectClick={()=>setToolbox(3)} /> </div>
             <div style={nav} ref={aboutMeRef}> <AboutMe/> </div>
-            <div><JobExperience items={workExp}/></div>
+            <div><JobExperience/></div>
             <div style={nav} ref={projectRef}>
               <div style={{marginBottom : '50px'}}>
                 <ClientProjects/>
