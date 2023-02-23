@@ -14,13 +14,13 @@ export const Title = ({onContactmeClick, onMyProjectClick}) => {
         <Typography fontSize={{xs : 35, sm : 35, md : '2vw'}} fontWeight="medium" color="secondary">
           👋Hi, I'm
         </Typography>
-        <Typography fontSize={{xs : 40, sm : 58, md : '5vw'}} color="primary" fontWeight="bold">
+        <Typography fontSize={{xs : 40, sm : 58, md : '5vw', lg : 65}} color="primary" fontWeight="bold">
           Lioncio Morcilla
         </Typography>
-        <Typography fontSize={{xs : 23, sm : 25, md : '2vw'}} color="primary" fontWeight="bold">
+        <Typography fontSize={{xs : 23, sm : 25, md : '2vw', lg: 30}} color="primary" fontWeight="bold">
           Aspiring Full-Stack Developer
         </Typography>
-        <Typography fontSize={{xs : 20, sm : 23, md : '1.5vw'}} color="primary" fontWeight="regular">
+        <Typography fontSize={{xs : 20, sm : 23, md : '1.5vw', lg: 22}} color="primary" fontWeight="regular">
           Passionate about making webapps and games
         </Typography>
 

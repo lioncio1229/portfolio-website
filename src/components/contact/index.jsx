@@ -15,7 +15,7 @@ const contactInfos = [
     icon: (
       <PhoneAndroid
         color="secondary"
-        sx={{ fontSize: { xs: 50, md: "3.8vw" } }}
+        sx={{ fontSize: { xs: 50, md: "3.8vw", lg: 55 } }}
       />
     ),
   },
@@ -23,7 +23,7 @@ const contactInfos = [
     label: "Email",
     value: "lionciomorcilla12@gmail.com",
     icon: (
-      <Email color="secondary" sx={{ fontSize: { xs: 50, md: "3.8vw" } }} />
+      <Email color="secondary" sx={{ fontSize: { xs: 50, md: "3.8vw", lg: 55 } }} />
     ),
   },
   {
@@ -32,7 +32,7 @@ const contactInfos = [
     icon: (
       <LocationCity
         color="secondary"
-        sx={{ fontSize: { xs: 50, md: "3.8vw" } }}
+        sx={{ fontSize: { xs: 50, md: "3.8vw", lg: 55 } }}
       />
     ),
   },
@@ -46,14 +46,14 @@ const ContactInfos = () => {
           {v.icon}
           <Stack>
             <Typography
-              sx={{ fontSize: { xs: 20, md: "2vw" } }}
+              sx={{ fontSize: { xs: 20, md: "2vw", lg: 27 } }}
               color="primary"
               fontWeight="medium"
             >
               {v.label}
             </Typography>
             <Typography
-              sx={{ fontSize: { xs: 17, md: "1.4vw" } }}
+              sx={{ fontSize: { xs: 17, md: "1.4vw", lg: 20 } }}
               noWrap={false}
               color="primary"
             >
