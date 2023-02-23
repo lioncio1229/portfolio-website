@@ -104,8 +104,8 @@ const Projects = ({title, projects}) => (
                 imageURL={p.imageURL}
                 visitIcon={p.visitIcon}
                 tools={p.tools}
-                width={{xs : '90vw', sm : '38vw'}}
-                height={{xs : '60vw', sm : '25vw'}}
+                width={{xs : '90vw', sm : '38vw', lg: 500}}
+                height={{xs : '60vw', sm : '25vw', lg: 330}}
 
                 onViewClick={() => window.open(p.path, '_blank')}
                 onViewAboutClick={p.viewAbout ? () => window.open(p.viewAbout, '_blank') : null}
