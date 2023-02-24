@@ -2,6 +2,14 @@ export default {
   headerButtons: ['Home', 'About Me', 'Work Experience', 'My Projects', 'Skills'],
   workExperiences: [
     {
+      title: "Freelancer",
+      startDate: "2019/9/10",
+      endDate: "2022/3/1",
+      jobType: "Freelance",
+      location: "Tiaong, Quezon",
+      description: "I did local and online freelancing for Game and Web development and also for video editing."
+    },
+    {
       title: "IT",
       company: "New Wave Direct System Inc.",
       location: "Brgy. San Agustin Tiaong, Quezon",

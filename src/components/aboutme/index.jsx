@@ -44,7 +44,7 @@ const Info = () => {
         <Typography color="primary" fontSize={16}>
           I am a passionate full-stack developer with 4 years of experience in
           programming. I have a strong foundation in both frontend and backend
-          development, with proficiency in MERN development (MongoDB, Express,
+          development, with proficiency in MERN (MongoDB, Express,
           React, and Node).
         </Typography>
 
