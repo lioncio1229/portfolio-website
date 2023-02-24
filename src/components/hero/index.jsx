@@ -18,10 +18,10 @@ export const Title = ({onContactmeClick, onMyProjectClick}) => {
           Lioncio Morcilla
         </Typography>
         <Typography fontSize={{xs : 23, sm : 25, md : '2vw', lg: 30}} color="primary" fontWeight="bold">
-          Aspiring Full-Stack Developer
+          Full-Stack Developer
         </Typography>
-        <Typography fontSize={{xs : 20, sm : 23, md : '1.5vw', lg: 22}} color="primary" fontWeight="regular">
-          Passionate about making webapps and games
+        <Typography fontSize={{sm : 20, md : '1.6vw', lg: 20}} color="primary" fontWeight="regular">
+          Passionate about doing frontend and backend system
         </Typography>
 
         <Stack direction="row" spacing={2} justifyContent={{xs : 'center', sm : 'center', md : 'left'}}>

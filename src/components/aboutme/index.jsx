@@ -41,36 +41,39 @@ const Info = () => {
           About Me
         </Typography>
 
-        <Typography color="primary" fontSize={20}>
-          I'm passionate about innovative technology because it can changes
-          lives. Developing something that can help others is a great
-          achievement to me.
+        <Typography color="primary" fontSize={16}>
+          I am a passionate full-stack developer with 4 years of experience in
+          programming. I have a strong foundation in both frontend and backend
+          development, with proficiency in MERN development (MongoDB, Express,
+          React, and Node).
         </Typography>
 
-        <Typography color="primary" fontSize={20}>
-          I'm graduated from Asian Institute of Technology and Education with
-          the Bachelor of Science in Information Technology. Before I go to
-          college, I started learning programming on my own. So now I have 4
-          years of programming experience.
+        <Typography color="primary" fontSize={16}>
+          I possess the adaptability and willingness to work on projects outside
+          of my core expertise, utilizing my strong problem-solving and
+          collaboration skills to quickly learn and become proficient in new
+          technologies and domains. As a team player, I enjoy collaborating with
+          others to create innovative and impactful products. I am constantly
+          learning and growing my skillset with the technologies in the industry.
         </Typography>
 
         {myInfos.map((info) => (
           <Grid container alignItems="center" key={info.label}>
-            <Grid item xs={1} sx={{mr : {xs : '10px'}}}>
+            <Grid item xs={1} sx={{ mr: { xs: "10px" } }}>
               {info.icon}
             </Grid>
             <Grid item xs={3}>
-              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+              <Typography fontSize={{ xs: "3.5vw", sm: 18 }} color="primary">
                 {info.label}
               </Typography>
             </Grid>
             <Grid item xs={1}>
-              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+              <Typography fontSize={{ xs: "3.5vw", sm: 18 }} color="primary">
                 :
               </Typography>
             </Grid>
             <Grid item xs={6}>
-              <Typography fontSize={{xs : '3.5vw', sm : 18}} color="primary">
+              <Typography fontSize={{ xs: "3.5vw", sm: 18 }} color="primary">
                 {info.value}
               </Typography>
             </Grid>
