@@ -26,7 +26,7 @@ const TextWithIcon = ({ text, icon, isActive }) => (
 const Item = ({ title, description, company, location, jobType, workDuration, logo, isActive }) => {
     return (
       <Stack spacing={2.5}>
-        <Stack direction="row" mt={2}>
+        <Stack direction="row" mt={2}  spacing={1.5}>
           <Box
             sx={{
               width: 65,
