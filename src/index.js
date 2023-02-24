@@ -51,7 +51,7 @@ root.render(
 
         <Route
           path="/my_resume"
-          element={<PdfRenderer url="./morcilla-resume.pdf" />}
+          element={<PdfRenderer url="./morcilla-resume-2.pdf" />}
         />
 
         <Route
