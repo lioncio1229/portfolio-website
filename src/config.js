@@ -19,7 +19,9 @@ export default {
     },
     {
       title: "Software Engineer",
-      description: "As a software engineer, I specialize in web development using a variety of tools including React.js, Redux, and Backbone.js. I have experience developing front-end interfaces, building out features, and implementing responsive design across a range of projects. In addition, I'm also skilled in deployment using Octopus, which enables me to effectively deploy and manage applications.",
+      description: `Maintining and developing UI features for multiple ecommerce websites using React, Redux, and Backbone.js frameworks. 🟢
+      Participating in scrum and working directly with Tech Lead and Senior Backend developers. 🟢 Using Jira as a software management tool. 🟢
+      Deploying features for Pre-release and Production environment. 🟢 Doing Unit testing, Integration testing, and System Testing`,
       company: "Smartwave BAV",
       startDate: "2022/10/3",
       location: "Muntinlupa",
