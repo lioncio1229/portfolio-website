@@ -19,8 +19,9 @@ export default {
     },
     {
       title: "Software Engineer",
-      description: `Maintining and developing UI features for multiple ecommerce websites using React, Redux, and Backbone.js frameworks. 🟢
-      Participating in scrum and working directly with Tech Lead and Senior Backend developers. 🟢 Using Jira as a software management tool. 🟢
+      description: `Maintaining and developing UI features for multiple ecommerce websites using React, Redux, and Backbone.js frameworks. 🟢
+      Participating in scrum and working directly with Tech Lead and Senior Backend developers. 🟢 Doing Technical Analysis for system development idea.
+      🟢 Using Jira as a software management tool. 🟢
       Deploying features for Pre-release and Production environment. 🟢 Doing Unit testing, Integration testing, and System Testing.`,
       company: "Smartwave BAV",
       startDate: "2022/10/3",

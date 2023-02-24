@@ -32,7 +32,7 @@ const DescriptionBox = ({description, noOfLinesToShowmore=3, minHeight=45}) => {
             bgcolor: "white",
             borderRadius: 3,
             p: 2,
-            pb: (isExpanded ? 4.5 : 2),
+            pb: (isExpanded ? 5.5 : 2),
             position: "relative",
         }}
         >
